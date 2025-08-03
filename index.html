@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <!-- 字符编码与移动端缩放适配 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 标签页标题 -->
+    <title>明日远方的诗与酒</title>
+
+    <!-- 引入必要的外部库（类似python的import和c++的include） -->
+    <link rel="stylesheet" href="mystyle.css">
+
+    <!-- 内联CSS样式 -->
+    <!-- <style>
+        /* 选择器（*通用选择器对所有元素，.类选择器，#id选择器，：伪类选择器等等） */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* 背景线性渐变（角度，颜色1，颜色2） */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            /* 按顺序自动选择fontfamily中给定的合适字体 */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            /* 布局方式：flex弹性布局 */
+            display: flex;
+            /* 水平竖直均居中 */
+            justify-content: center;
+            align-items: center;
+            /* 外边距和内边距 */
+            margin: 0;
+            padding: 0;
+        }
+        
+        .card {
+            width: 340px;
+            padding: 40px 38px;
+            background: #ffffff;
+            /* 盒边框设置（radius圆角，shadow阴影效果） */
+            border-radius: 20px;    
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            /* 文本对齐方式 */
+            text-align: center;
+        }
+
+        .navi {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        button {
+            margin-left: 10px;
+            padding: 10px 28px;
+            border: none;
+            border-radius: 3px;
+            background: #0077ff;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+        }
+        button:hover {
+            background: #0059c1;
+        }
+        button:active {
+            transform: scale(0.96);
+        }
+    </style> -->
+
+</head>
+
+<!-- 页面可显示内容 -->
+<body>
+    <!-- 页面不同部分的语义化分区 -->
+    <section class="card">
+        <img src="" alt="My Avatar">
+        <!-- 标题 h1最大h6最小 -->
+        <h1>贾明远</h1>
+        <!-- p-段落正文，会自动上下留白 -->
+        <p>THU自动化大二在读 / 努力学习中~ </p>
+
+        <!-- 无序列表（容器） -->
+        <ul class="navi">
+            <!-- 列表项 -->
+            <li><a href="https://github.com/jmy-idea" target="_blank">&#128523 Github</a></li>
+            <li><a href="jmy23@mails.tsinghua.edu.cn">&#128233 邮箱</a></li>
+        </ul>
+        <!-- 表单form -->
+        <form>
+            <!-- 表单元素input（类型，id，占位符） -->
+            <input type="text" id="nameInput" placeholder="Input your name~">
+
+            <!-- 表单元素button，用于交互 -->
+            <button type="button" id="sayHigh">打招呼</button>
+        </form>
+    </section>
+
+    <!-- javascript写在body结束之前（保证DOM已加载） -->
+    <script src="personal_card.js"></script>
+</body>
+</html>
