@@ -1,0 +1,53 @@
+/* 选择器（*通用选择器对所有元素，.类选择器，#id选择器，：伪类选择器等等） */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    /* 背景线性渐变（角度，颜色1，颜色2） */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 100vh;
+    /* 按顺序自动选择fontfamily中给定的合适字体 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    /* 布局方式：flex弹性布局 */
+    display: flex;
+    /* 水平竖直均居中 */
+    justify-content: center;
+    align-items: center;
+    /* 外边距和内边距 */
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    width: 340px;
+    padding: 40px 38px;
+    background: #ffffff;
+    /* 盒边框设置（radius圆角，shadow阴影效果） */
+    border-radius: 20px;    
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    /* 文本对齐方式 */
+    text-align: center;
+}
+.navi {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+button {
+    margin-left: 10px;
+    padding: 10px 28px;
+    border: none;
+    border-radius: 3px;
+    background: #0077ff;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+button:hover {
+    background: #0059c1;
+}
+button:active {
+    transform: scale(0.96);
+}
