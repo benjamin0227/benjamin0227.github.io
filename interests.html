@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的兴趣页 | Jia Mingyuan</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body data-page="interests">
+    <header class="site-header">
+        <div class="site-shell header-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">JM</span>
+                <span class="brand-text">
+                    <strong>Jia Mingyuan</strong>
+                    <small>Personal Site</small>
+                </span>
+            </a>
+            <nav class="main-nav" aria-label="主导航">
+                <a href="index.html">主页</a>
+                <a href="academic.html">学术简介</a>
+                <a href="cv.html">我的 CV</a>
+                <a href="blog.html">我的博客</a>
+                <a href="interests.html">兴趣页</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-shell page-main">
+        <section class="page-hero reveal">
+            <p class="eyebrow">子页面 4</p>
+            <h1>我的兴趣页</h1>
+            <p class="lead">
+                这里放了我喜欢的动漫、游戏和世界观设定主题图。
+                根据你的要求，进入内容前需要先回答几个问题。
+            </p>
+        </section>
+
+        <section id="interestGate" class="surface-card gate-panel reveal">
+            <h2>进入前问答</h2>
+            <p>请回答下面的问题，全部正确后即可解锁兴趣内容。</p>
+            <form id="interestGateForm" class="gate-form"></form>
+            <p id="gateMessage" class="form-message" aria-live="polite"></p>
+        </section>
+
+        <section id="interestContent" class="interests-content hidden reveal">
+            <div class="interests-gallery">
+                <article class="surface-card interest-card">
+                    <img src="assets/anime-night.svg" alt="动漫主题插画">
+                    <div>
+                        <h3>动漫：夜色幻想</h3>
+                        <p>喜欢细腻叙事和有层次的角色成长线，尤其是慢热型剧情。</p>
+                    </div>
+                </article>
+
+                <article class="surface-card interest-card">
+                    <img src="assets/retro-game.svg" alt="游戏主题插画">
+                    <div>
+                        <h3>游戏：复古像素探索</h3>
+                        <p>偏爱策略和解谜融合的游戏，享受“看懂规则后反超”的过程。</p>
+                    </div>
+                </article>
+
+                <article class="surface-card interest-card">
+                    <img src="assets/scifi-city.svg" alt="科幻城市插画">
+                    <div>
+                        <h3>设定：科幻城市</h3>
+                        <p>被“技术与人文冲突共存”的设定吸引，也常把它带进写作灵感里。</p>
+                    </div>
+                </article>
+
+                <article class="surface-card interest-card">
+                    <img src="assets/mecha-hangar.svg" alt="机甲机库插画">
+                    <div>
+                        <h3>机甲：工程感设计</h3>
+                        <p>机甲作品里最吸引我的是结构逻辑和动作调度的真实感。</p>
+                    </div>
+                </article>
+            </div>
+            <button id="lockInterestPage" class="btn ghost" type="button">重新上锁（演示用）</button>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-shell footer-inner">
+            <p>© <span class="current-year"></span> Jia Mingyuan. Built for GitHub Pages.</p>
+            <div class="footer-links">
+                <a href="https://github.com/jmy-idea" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="mailto:jmy23@mails.tsinghua.edu.cn">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="personal_card.js"></script>
+</body>
+</html>

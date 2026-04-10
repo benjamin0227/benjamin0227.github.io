@@ -1,106 +1,106 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-    <!-- 字符编码与移动端缩放适配 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- 标签页标题 -->
-    <title>明日远方的诗与酒</title>
-
-    <!-- 引入必要的外部库（类似python的import和c++的include） -->
+    <title>主页 | Jia Mingyuan</title>
     <link rel="stylesheet" href="mystyle.css">
-
-    <!-- 内联CSS样式 -->
-    <!-- <style>
-        /* 选择器（*通用选择器对所有元素，.类选择器，#id选择器，：伪类选择器等等） */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            /* 背景线性渐变（角度，颜色1，颜色2） */
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            height: 100vh;
-            /* 按顺序自动选择fontfamily中给定的合适字体 */
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            /* 布局方式：flex弹性布局 */
-            display: flex;
-            /* 水平竖直均居中 */
-            justify-content: center;
-            align-items: center;
-            /* 外边距和内边距 */
-            margin: 0;
-            padding: 0;
-        }
-        
-        .card {
-            width: 340px;
-            padding: 40px 38px;
-            background: #ffffff;
-            /* 盒边框设置（radius圆角，shadow阴影效果） */
-            border-radius: 20px;    
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-            /* 文本对齐方式 */
-            text-align: center;
-        }
-
-        .navi {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        button {
-            margin-left: 10px;
-            padding: 10px 28px;
-            border: none;
-            border-radius: 3px;
-            background: #0077ff;
-            color: #fff;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.1s;
-        }
-        button:hover {
-            background: #0059c1;
-        }
-        button:active {
-            transform: scale(0.96);
-        }
-    </style> -->
-
 </head>
+<body data-page="home">
+    <header class="site-header">
+        <div class="site-shell header-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">JM</span>
+                <span class="brand-text">
+                    <strong>Jia Mingyuan</strong>
+                    <small>Personal Site</small>
+                </span>
+            </a>
+            <nav class="main-nav" aria-label="主导航">
+                <a href="index.html">主页</a>
+                <a href="academic.html">学术简介</a>
+                <a href="cv.html">我的 CV</a>
+                <a href="blog.html">我的博客</a>
+                <a href="interests.html">兴趣页</a>
+            </nav>
+        </div>
+    </header>
 
-<!-- 页面可显示内容 -->
-<body>
-    <!-- 页面不同部分的语义化分区 -->
-    <section class="card">
-        <img src="" alt="My Avatar">
-        <!-- 标题 h1最大h6最小 -->
-        <h1>贾明远</h1>
-        <!-- p-段落正文，会自动上下留白 -->
-        <p>THU自动化大二在读 / 努力学习中~ </p>
+    <main class="site-shell page-main">
+        <section class="hero reveal">
+            <div class="hero-copy">
+                <p class="eyebrow">个人主页</p>
+                <h1>明日远方的诗与酒</h1>
+                <p class="lead">
+                    你好，我是贾明远。这里会记录我的学术探索、成长轨迹、博客杂谈和兴趣收藏。
+                    整个站点采用可扩展的多页面结构，便于后续持续维护。
+                </p>
 
-        <!-- 无序列表（容器） -->
-        <ul class="navi">
-            <!-- 列表项 -->
-            <li><a href="https://github.com/jmy-idea" target="_blank">&#128523 Github</a></li>
-            <li><a href="jmy23@mails.tsinghua.edu.cn">&#128233 邮箱</a></li>
-        </ul>
-        <!-- 表单form -->
-        <form>
-            <!-- 表单元素input（类型，id，占位符） -->
-            <input type="text" id="nameInput" placeholder="Input your name~">
+                <div class="hero-actions">
+                    <a class="btn" href="academic.html">查看学术简介</a>
+                    <a class="btn ghost" href="blog.html">去博客逛逛</a>
+                </div>
 
-            <!-- 表单元素button，用于交互 -->
-            <button type="button" id="sayHigh">打招呼</button>
-        </form>
-    </section>
+                <form id="greetForm" class="greet-form">
+                    <label for="visitorName">来访称呼</label>
+                    <div class="form-row">
+                        <input id="visitorName" type="text" placeholder="输入你的称呼" maxlength="30">
+                        <button class="btn compact" type="submit">打招呼</button>
+                    </div>
+                </form>
+                <p id="greetOutput" class="greet-output" aria-live="polite"></p>
+            </div>
 
-    <!-- javascript写在body结束之前（保证DOM已加载） -->
+            <div class="hero-visual">
+                <div class="logo-orb" aria-hidden="true">
+                    <span>JM</span>
+                    <small>Automation · Learning · Making</small>
+                </div>
+
+                <blockquote class="quote-box">
+                    <p id="quoteText">把问题说清楚，答案自然会出现。</p>
+                    <button id="changeQuote" class="text-button" type="button">换一句引言</button>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="quick-grid reveal">
+            <article class="surface-card quick-card">
+                <h2>个人学术简介</h2>
+                <p>包含基础介绍、研究领域与会议/预印/期刊三栏成果。</p>
+                <a href="academic.html">进入页面</a>
+            </article>
+
+            <article class="surface-card quick-card">
+                <h2>我的 CV</h2>
+                <p>按教育、研究、项目、技能分区，方便快速更新和导出。</p>
+                <a href="cv.html">进入页面</a>
+            </article>
+
+            <article class="surface-card quick-card">
+                <h2>我的博客</h2>
+                <p>支持发布杂谈与笔记，使用本地存储，无需后端即可维护。</p>
+                <a href="blog.html">进入页面</a>
+            </article>
+
+            <article class="surface-card quick-card">
+                <h2>我的兴趣页</h2>
+                <p>包含动漫和游戏主题图，回答问题后可解锁全部内容。</p>
+                <a href="interests.html">进入页面</a>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-shell footer-inner">
+            <p>© <span class="current-year"></span> Jia Mingyuan. Built for GitHub Pages.</p>
+            <div class="footer-links">
+                <a href="https://github.com/jmy-idea" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="mailto:jmy23@mails.tsinghua.edu.cn">Email</a>
+            </div>
+        </div>
+    </footer>
+
     <script src="personal_card.js"></script>
 </body>
 </html>

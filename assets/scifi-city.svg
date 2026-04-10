@@ -1,0 +1,17 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#13263F"/>
+      <stop offset="1" stop-color="#0E7C86"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="28" fill="url(#bg)"/>
+  <rect x="120" y="210" width="80" height="210" rx="8" fill="#F4E8D6" opacity="0.8"/>
+  <rect x="220" y="170" width="110" height="250" rx="8" fill="#F4E8D6" opacity="0.7"/>
+  <rect x="350" y="140" width="100" height="280" rx="8" fill="#F4E8D6" opacity="0.85"/>
+  <rect x="470" y="180" width="120" height="240" rx="8" fill="#F4E8D6" opacity="0.75"/>
+  <rect x="610" y="220" width="70" height="200" rx="8" fill="#F4E8D6" opacity="0.85"/>
+  <path d="M70 420H730" stroke="#FFD089" stroke-width="8" stroke-linecap="round"/>
+  <path d="M140 260H650" stroke="#FFD089" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <text x="400" y="470" text-anchor="middle" fill="#F9F6EE" font-size="38" font-family="Noto Sans SC, sans-serif">Sci-Fi City</text>
+</svg>

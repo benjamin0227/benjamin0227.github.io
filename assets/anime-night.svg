@@ -1,0 +1,15 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F1A36"/>
+      <stop offset="1" stop-color="#21406B"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="28" fill="url(#sky)"/>
+  <circle cx="640" cy="110" r="56" fill="#FFD38A"/>
+  <path d="M0 390C130 340 220 360 330 380C440 400 560 420 800 350V500H0V390Z" fill="#162845"/>
+  <path d="M90 360L170 250L230 360H90Z" fill="#2D4A73"/>
+  <path d="M220 360L310 220L370 360H220Z" fill="#365C8E"/>
+  <path d="M380 360L500 210L580 360H380Z" fill="#4472AA"/>
+  <text x="400" y="465" text-anchor="middle" fill="#F9F6EE" font-size="38" font-family="Noto Sans SC, sans-serif">Anime Night</text>
+</svg>

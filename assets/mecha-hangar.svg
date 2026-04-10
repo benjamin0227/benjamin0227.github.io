@@ -1,0 +1,18 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ECEBE4"/>
+      <stop offset="1" stop-color="#D7E5E3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="28" fill="url(#bg)"/>
+  <rect x="150" y="80" width="500" height="340" rx="24" fill="#1D2A3A"/>
+  <rect x="220" y="130" width="360" height="200" rx="14" fill="#2C415B"/>
+  <path d="M390 190H410V300H390V190Z" fill="#A1C9C5"/>
+  <path d="M350 220H390V250H350V220Z" fill="#F5B67F"/>
+  <path d="M410 220H450V250H410V220Z" fill="#F5B67F"/>
+  <path d="M340 300H390V340H340V300Z" fill="#A1C9C5"/>
+  <path d="M410 300H460V340H410V300Z" fill="#A1C9C5"/>
+  <circle cx="400" cy="170" r="20" fill="#FFD089"/>
+  <text x="400" y="460" text-anchor="middle" fill="#1D2A3A" font-size="38" font-family="Noto Sans SC, sans-serif">Mecha Hangar</text>
+</svg>

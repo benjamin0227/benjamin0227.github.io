@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的博客 | Jia Mingyuan</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body data-page="blog">
+    <header class="site-header">
+        <div class="site-shell header-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">JM</span>
+                <span class="brand-text">
+                    <strong>Jia Mingyuan</strong>
+                    <small>Personal Site</small>
+                </span>
+            </a>
+            <nav class="main-nav" aria-label="主导航">
+                <a href="index.html">主页</a>
+                <a href="academic.html">学术简介</a>
+                <a href="cv.html">我的 CV</a>
+                <a href="blog.html">我的博客</a>
+                <a href="interests.html">兴趣页</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-shell page-main">
+        <section class="page-hero reveal">
+            <p class="eyebrow">子页面 3</p>
+            <h1>我的博客</h1>
+            <p class="lead">
+                支持发布日常杂谈、读书笔记、研究随想。这里使用浏览器本地存储，
+                不需要后端就能快速维护内容，适合 GitHub 静态托管。
+            </p>
+        </section>
+
+        <section class="blog-layout reveal">
+            <article class="surface-card blog-composer">
+                <h2>发布新博客</h2>
+                <form id="blogForm" class="blog-form">
+                    <label>
+                        标题
+                        <input id="blogTitle" type="text" maxlength="80" placeholder="例如：这周在实验室学到的三件事" required>
+                    </label>
+
+                    <label>
+                        分类
+                        <select id="blogCategory">
+                            <option value="杂谈">杂谈</option>
+                            <option value="学习笔记">学习笔记</option>
+                            <option value="研究随想">研究随想</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        内容
+                        <textarea id="blogContent" rows="7" maxlength="1000" placeholder="写下一段你想记录的内容..." required></textarea>
+                    </label>
+
+                    <div class="form-row">
+                        <button class="btn" type="submit">发布</button>
+                        <button id="clearBlogDraft" class="btn ghost" type="button">清空输入</button>
+                    </div>
+                    <p id="blogFormMessage" class="form-message" aria-live="polite"></p>
+                </form>
+            </article>
+
+            <article class="surface-card blog-feed-wrap">
+                <h2>最近发布</h2>
+                <div id="blogFeed" class="blog-feed"></div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-shell footer-inner">
+            <p>© <span class="current-year"></span> Jia Mingyuan. Built for GitHub Pages.</p>
+            <div class="footer-links">
+                <a href="https://github.com/jmy-idea" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="mailto:jmy23@mails.tsinghua.edu.cn">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="personal_card.js"></script>
+</body>
+</html>
