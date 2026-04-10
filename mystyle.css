@@ -195,8 +195,7 @@ h3 {
 .hero-copy,
 .hero-visual,
 .page-hero,
-.surface-card,
-.gate-panel {
+.surface-card {
     padding: 26px;
 }
 
@@ -262,15 +261,89 @@ h3 {
     color: var(--primary-deep);
 }
 
-.greet-form {
+
+.sudoku-panel {
+    margin-top: 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface-soft);
+    padding: 16px;
     display: grid;
-    gap: 10px;
-    margin-top: 18px;
+    gap: 12px;
 }
 
-.greet-form label {
+.sudoku-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.difficulty-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.difficulty-btn.is-active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+.sudoku-status {
+    min-height: 1.45em;
+    color: var(--ink-soft);
+    font-size: 0.93rem;
     font-weight: 700;
-    font-size: 0.92rem;
+}
+
+.sudoku-board {
+    width: min(100%, 500px);
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    margin-top: 2px;
+}
+
+.sudoku-cell {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 0;
+    border: 1px solid rgba(29, 42, 58, 0.2);
+    padding: 0;
+    text-align: center;
+    font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+    font-weight: 700;
+    color: var(--ink-strong);
+}
+
+.sudoku-cell:disabled,
+.sudoku-cell.preset {
+    background: rgba(14, 124, 134, 0.12);
+    color: var(--ink-strong);
+}
+
+.sudoku-cell.invalid {
+    color: #b44632;
+    background: rgba(180, 70, 50, 0.08);
+}
+
+.sudoku-cell.box-left {
+    border-left: 2px solid rgba(29, 42, 58, 0.45);
+}
+
+.sudoku-cell.box-top {
+    border-top: 2px solid rgba(29, 42, 58, 0.45);
+}
+
+.sudoku-cell.box-right {
+    border-right: 2px solid rgba(29, 42, 58, 0.45);
+}
+
+.sudoku-cell.box-bottom {
+    border-bottom: 2px solid rgba(29, 42, 58, 0.45);
 }
 
 .form-row {
@@ -301,13 +374,6 @@ select:focus {
 
 textarea {
     resize: vertical;
-}
-
-.greet-output {
-    min-height: 1.5em;
-    margin-top: 8px;
-    color: var(--primary-deep);
-    font-weight: 700;
 }
 
 .hero-visual {
@@ -355,38 +421,6 @@ textarea {
 .quote-box p {
     color: var(--ink-soft);
     font-size: 0.98rem;
-}
-
-.quick-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(190px, 1fr));
-    gap: 14px;
-}
-
-.quick-card {
-    display: grid;
-    gap: 8px;
-    padding: 20px;
-}
-
-.quick-card h2 {
-    font-size: 1.14rem;
-}
-
-.quick-card p {
-    color: var(--ink-soft);
-    font-size: 0.92rem;
-}
-
-.quick-card a {
-    text-decoration: none;
-    color: var(--primary-deep);
-    font-weight: 700;
-    margin-top: 8px;
-}
-
-.quick-card a:hover {
-    color: var(--accent);
 }
 
 .page-hero {
@@ -543,22 +577,6 @@ textarea {
     color: var(--ink-soft);
 }
 
-.gate-panel {
-    display: grid;
-    gap: 10px;
-}
-
-.gate-form {
-    display: grid;
-    gap: 10px;
-}
-
-.quiz-row {
-    display: grid;
-    gap: 6px;
-    font-weight: 700;
-}
-
 .form-message {
     min-height: 1.45em;
     color: var(--ink-soft);
@@ -654,8 +672,7 @@ textarea {
     .research-grid,
     .pub-grid,
     .blog-layout,
-    .interests-gallery,
-    .quick-grid {
+    .interests-gallery {
         grid-template-columns: 1fr;
     }
 
@@ -677,15 +694,19 @@ textarea {
     .hero-copy,
     .hero-visual,
     .page-hero,
-    .surface-card,
-    .gate-panel {
+    .surface-card {
         padding: 18px;
     }
 
     .form-row,
-    .hero-actions {
+    .hero-actions,
+    .sudoku-controls {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .sudoku-board {
+        width: 100%;
     }
 
     .footer-inner {

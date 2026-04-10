@@ -36,19 +36,18 @@
                     整个站点采用可扩展的多页面结构，便于后续持续维护。
                 </p>
 
-                <div class="hero-actions">
-                    <a class="btn" href="academic.html">查看学术简介</a>
-                    <a class="btn ghost" href="blog.html">去博客逛逛</a>
-                </div>
-
-                <form id="greetForm" class="greet-form">
-                    <label for="visitorName">来访称呼</label>
-                    <div class="form-row">
-                        <input id="visitorName" type="text" placeholder="输入你的称呼" maxlength="30">
-                        <button class="btn compact" type="submit">打招呼</button>
+                <section class="sudoku-panel" aria-label="数独小游戏">
+                    <div class="sudoku-controls">
+                        <div class="difficulty-group" role="group" aria-label="数独难度">
+                            <button class="btn ghost compact difficulty-btn is-active" data-difficulty="easy" type="button">简单</button>
+                            <button class="btn ghost compact difficulty-btn" data-difficulty="medium" type="button">中等</button>
+                            <button class="btn ghost compact difficulty-btn" data-difficulty="hard" type="button">困难</button>
+                        </div>
+                        <button id="newSudokuGame" class="btn compact" type="button">新开一局</button>
                     </div>
-                </form>
-                <p id="greetOutput" class="greet-output" aria-live="polite"></p>
+                    <p id="sudokuStatus" class="sudoku-status" aria-live="polite"></p>
+                    <div id="sudokuBoard" class="sudoku-board" role="grid" aria-label="九宫格数独棋盘"></div>
+                </section>
             </div>
 
             <div class="hero-visual">
@@ -62,32 +61,6 @@
                     <button id="changeQuote" class="text-button" type="button">换一句引言</button>
                 </blockquote>
             </div>
-        </section>
-
-        <section class="quick-grid reveal">
-            <article class="surface-card quick-card">
-                <h2>个人学术简介</h2>
-                <p>包含基础介绍、研究领域与会议/预印/期刊三栏成果。</p>
-                <a href="academic.html">进入页面</a>
-            </article>
-
-            <article class="surface-card quick-card">
-                <h2>我的 CV</h2>
-                <p>按教育、研究、项目、技能分区，方便快速更新和导出。</p>
-                <a href="cv.html">进入页面</a>
-            </article>
-
-            <article class="surface-card quick-card">
-                <h2>我的博客</h2>
-                <p>支持发布杂谈与笔记，使用本地存储，无需后端即可维护。</p>
-                <a href="blog.html">进入页面</a>
-            </article>
-
-            <article class="surface-card quick-card">
-                <h2>我的兴趣页</h2>
-                <p>包含动漫和游戏主题图，回答问题后可解锁全部内容。</p>
-                <a href="interests.html">进入页面</a>
-            </article>
         </section>
     </main>
 

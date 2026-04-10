@@ -7,6 +7,13 @@ const HOME_QUOTES = [
 
 const BLOG_STORAGE_KEY = "personal-card-blog-posts-v1";
 const BLOG_DRAFT_KEY = "personal-card-blog-draft-v1";
+const SUDOKU_SIZE = 9;
+
+const SUDOKU_DIFFICULTY_CONFIG = {
+    easy: { label: "简单", removeCount: 38 },
+    medium: { label: "中等", removeCount: 48 },
+    hard: { label: "困难", removeCount: 56 }
+};
 
 const DEFAULT_BLOG_POSTS = [
     {
@@ -25,15 +32,6 @@ const DEFAULT_BLOG_POSTS = [
     }
 ];
 
-const INTEREST_GATE_CONFIG = {
-    storageKey: "personal-card-interest-unlocked-v1",
-    questions: [
-        { question: "我的 GitHub 用户名是？", answer: "jmy-idea" },
-        { question: "我的学校简称是？（例如：THU）", answer: "thu" },
-        { question: "当前站点主要使用的前端语言之一是？", answer: "javascript" }
-    ]
-};
-
 document.addEventListener("DOMContentLoaded", () => {
     setCurrentYear();
     markActiveNavigation();
@@ -45,9 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (page === "blog") {
         initBlogPage();
-    }
-    if (page === "interests") {
-        initInterestGate();
     }
 });
 
@@ -99,9 +94,10 @@ function setupRevealAnimation() {
 function initHomePage() {
     const quoteText = document.getElementById("quoteText");
     const changeQuoteBtn = document.getElementById("changeQuote");
-    const greetForm = document.getElementById("greetForm");
-    const visitorNameInput = document.getElementById("visitorName");
-    const greetOutput = document.getElementById("greetOutput");
+    const board = document.getElementById("sudokuBoard");
+    const status = document.getElementById("sudokuStatus");
+    const newGameButton = document.getElementById("newSudokuGame");
+    const difficultyButtons = Array.from(document.querySelectorAll(".difficulty-btn"));
 
     let quoteIndex = 0;
     if (quoteText) {
@@ -115,25 +111,205 @@ function initHomePage() {
         });
     }
 
-    if (greetForm && visitorNameInput && greetOutput) {
-        greetForm.addEventListener("submit", (event) => {
-            event.preventDefault();
-            const userName = visitorNameInput.value.trim();
-            const displayName = userName || "朋友";
-            greetOutput.textContent = `${timeGreeting()}，${displayName}！欢迎来到我的个人主页。`;
-        });
+    if (!board || !status || !newGameButton || difficultyButtons.length === 0) {
+        return;
     }
+
+    const state = {
+        difficulty: "easy",
+        puzzle: createEmptyGrid(),
+        solution: createEmptyGrid()
+    };
+
+    const startGame = () => {
+        const config = SUDOKU_DIFFICULTY_CONFIG[state.difficulty];
+        state.solution = generateSudokuSolution();
+        state.puzzle = createSudokuPuzzle(state.solution, config.removeCount);
+        renderSudokuBoard(board, state.puzzle, state.solution, status, config.label);
+        updateDifficultyButtons(difficultyButtons, state.difficulty);
+    };
+
+    difficultyButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const nextDifficulty = button.dataset.difficulty;
+            if (!nextDifficulty || !(nextDifficulty in SUDOKU_DIFFICULTY_CONFIG)) {
+                return;
+            }
+            state.difficulty = nextDifficulty;
+            startGame();
+        });
+    });
+
+    newGameButton.addEventListener("click", () => {
+        startGame();
+    });
+
+    startGame();
 }
 
-function timeGreeting() {
-    const hour = new Date().getHours();
-    if (hour < 12) {
-        return "早上好";
+function updateDifficultyButtons(buttons, activeDifficulty) {
+    buttons.forEach((button) => {
+        const selected = button.dataset.difficulty === activeDifficulty;
+        button.classList.toggle("is-active", selected);
+        button.setAttribute("aria-pressed", selected ? "true" : "false");
+    });
+}
+
+function createEmptyGrid() {
+    return Array.from({ length: SUDOKU_SIZE }, () => Array(SUDOKU_SIZE).fill(0));
+}
+
+function generateSudokuSolution() {
+    const board = createEmptyGrid();
+    fillSudokuBoard(board, 0, 0);
+    return board;
+}
+
+function fillSudokuBoard(board, row, col) {
+    if (row === SUDOKU_SIZE) {
+        return true;
     }
-    if (hour < 18) {
-        return "下午好";
+
+    const nextRow = col === SUDOKU_SIZE - 1 ? row + 1 : row;
+    const nextCol = col === SUDOKU_SIZE - 1 ? 0 : col + 1;
+
+    const candidates = shuffleArray([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    for (const value of candidates) {
+        if (!isSudokuMoveValid(board, row, col, value)) {
+            continue;
+        }
+        board[row][col] = value;
+        if (fillSudokuBoard(board, nextRow, nextCol)) {
+            return true;
+        }
+        board[row][col] = 0;
     }
-    return "晚上好";
+
+    return false;
+}
+
+function isSudokuMoveValid(board, row, col, value) {
+    for (let index = 0; index < SUDOKU_SIZE; index += 1) {
+        if (board[row][index] === value || board[index][col] === value) {
+            return false;
+        }
+    }
+
+    const rowStart = Math.floor(row / 3) * 3;
+    const colStart = Math.floor(col / 3) * 3;
+    for (let rowOffset = 0; rowOffset < 3; rowOffset += 1) {
+        for (let colOffset = 0; colOffset < 3; colOffset += 1) {
+            if (board[rowStart + rowOffset][colStart + colOffset] === value) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+function createSudokuPuzzle(solution, removeCount) {
+    const puzzle = solution.map((row) => [...row]);
+    const cells = [];
+
+    for (let row = 0; row < SUDOKU_SIZE; row += 1) {
+        for (let col = 0; col < SUDOKU_SIZE; col += 1) {
+            cells.push([row, col]);
+        }
+    }
+
+    const shuffled = shuffleArray(cells);
+    const removeLimit = Math.min(removeCount, shuffled.length);
+    for (let index = 0; index < removeLimit; index += 1) {
+        const [row, col] = shuffled[index];
+        puzzle[row][col] = 0;
+    }
+
+    return puzzle;
+}
+
+function shuffleArray(items) {
+    const result = [...items];
+    for (let index = result.length - 1; index > 0; index -= 1) {
+        const next = Math.floor(Math.random() * (index + 1));
+        [result[index], result[next]] = [result[next], result[index]];
+    }
+    return result;
+}
+
+function renderSudokuBoard(boardElement, puzzle, solution, statusElement, difficultyLabel) {
+    boardElement.innerHTML = "";
+
+    for (let row = 0; row < SUDOKU_SIZE; row += 1) {
+        for (let col = 0; col < SUDOKU_SIZE; col += 1) {
+            const input = document.createElement("input");
+            input.type = "text";
+            input.maxLength = 1;
+            input.className = "sudoku-cell";
+            input.inputMode = "numeric";
+            input.setAttribute("aria-label", `第 ${row + 1} 行第 ${col + 1} 列`);
+
+            if (col === 0) {
+                input.classList.add("box-left");
+            }
+            if (row === 0) {
+                input.classList.add("box-top");
+            }
+            if ((col + 1) % 3 === 0) {
+                input.classList.add("box-right");
+            }
+            if ((row + 1) % 3 === 0) {
+                input.classList.add("box-bottom");
+            }
+
+            const presetValue = puzzle[row][col];
+            if (presetValue !== 0) {
+                input.value = String(presetValue);
+                input.disabled = true;
+                input.classList.add("preset");
+            } else {
+                input.addEventListener("input", () => {
+                    const cleaned = input.value.replace(/[^1-9]/g, "").slice(-1);
+                    input.value = cleaned;
+
+                    if (!cleaned) {
+                        input.classList.remove("invalid");
+                        updateSudokuStatus(boardElement, statusElement, difficultyLabel);
+                        return;
+                    }
+
+                    const isCorrect = Number(cleaned) === solution[row][col];
+                    input.classList.toggle("invalid", !isCorrect);
+                    updateSudokuStatus(boardElement, statusElement, difficultyLabel);
+                });
+            }
+
+            boardElement.appendChild(input);
+        }
+    }
+
+    updateSudokuStatus(boardElement, statusElement, difficultyLabel);
+}
+
+function updateSudokuStatus(boardElement, statusElement, difficultyLabel) {
+    const allCells = Array.from(boardElement.querySelectorAll(".sudoku-cell"));
+    const filledCount = allCells.filter((cell) => cell.value !== "").length;
+    const invalidCount = allCells.filter((cell) => cell.classList.contains("invalid")).length;
+
+    statusElement.classList.remove("is-success", "is-error");
+    if (invalidCount > 0) {
+        statusElement.textContent = `当前有 ${invalidCount} 个错误数字，请继续修正。`;
+        statusElement.classList.add("is-error");
+        return;
+    }
+
+    if (filledCount === SUDOKU_SIZE * SUDOKU_SIZE) {
+        statusElement.textContent = `你已完成 ${difficultyLabel} 难度数独，恭喜通关。`;
+        statusElement.classList.add("is-success");
+        return;
+    }
+
+    statusElement.textContent = `${difficultyLabel}难度进行中：已填写 ${filledCount}/81。`;
 }
 
 function initBlogPage() {
@@ -254,84 +430,6 @@ function renderBlogPosts(posts, container) {
             </article>
         `;
     }).join("");
-}
-
-function initInterestGate() {
-    const gateBox = document.getElementById("interestGate");
-    const form = document.getElementById("interestGateForm");
-    const message = document.getElementById("gateMessage");
-    const content = document.getElementById("interestContent");
-    const lockButton = document.getElementById("lockInterestPage");
-
-    if (!gateBox || !form || !message || !content || !lockButton) {
-        return;
-    }
-
-    renderGateQuestions(form, INTEREST_GATE_CONFIG.questions);
-
-    const shouldUnlock = localStorage.getItem(INTEREST_GATE_CONFIG.storageKey) === "true";
-    if (shouldUnlock) {
-        unlockInterestContent(gateBox, content);
-    }
-
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const allCorrect = INTEREST_GATE_CONFIG.questions.every((item, index) => {
-            const input = form.elements.namedItem(`q-${index}`);
-            const value = input && typeof input.value === "string" ? input.value : "";
-            return normalizeAnswer(value) === normalizeAnswer(item.answer);
-        });
-
-        if (allCorrect) {
-            localStorage.setItem(INTEREST_GATE_CONFIG.storageKey, "true");
-            setMessage(message, "验证成功，已解锁兴趣页内容。", "success");
-            unlockInterestContent(gateBox, content);
-            return;
-        }
-
-        setMessage(message, "答案未全部正确，请再试一次。", "error");
-    });
-
-    lockButton.addEventListener("click", () => {
-        localStorage.removeItem(INTEREST_GATE_CONFIG.storageKey);
-        gateBox.classList.remove("hidden");
-        content.classList.add("hidden");
-        form.reset();
-        setMessage(message, "页面已重新上锁。", "success");
-    });
-}
-
-function renderGateQuestions(form, questions) {
-    form.innerHTML = "";
-    questions.forEach((item, index) => {
-        const label = document.createElement("label");
-        label.className = "quiz-row";
-        label.textContent = `问题 ${index + 1}：${item.question}`;
-
-        const input = document.createElement("input");
-        input.type = "text";
-        input.name = `q-${index}`;
-        input.autocomplete = "off";
-        input.required = true;
-
-        label.appendChild(input);
-        form.appendChild(label);
-    });
-
-    const submitButton = document.createElement("button");
-    submitButton.type = "submit";
-    submitButton.className = "btn";
-    submitButton.textContent = "验证答案";
-    form.appendChild(submitButton);
-}
-
-function unlockInterestContent(gateBox, contentBox) {
-    gateBox.classList.add("hidden");
-    contentBox.classList.remove("hidden");
-}
-
-function normalizeAnswer(text) {
-    return String(text).trim().toLowerCase().replace(/\s+/g, "");
 }
 
 function setMessage(target, text, state) {
