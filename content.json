@@ -20,12 +20,12 @@
   },
   "about": {
     "en": [
-      "I am an undergraduate in the Department of Automation at Tsinghua University, in the Talent Program for Intelligent Robotics. My research interests lie in world models for embodied systems, robotics, and representation learning.",
+      "I am an undergraduate in the Department of Automation at Tsinghua University. My research interests lie in world models for embodied systems, robotics, and representation learning.",
       "I work on learning models that connect visual observations with actions and preserve spatial consistency over time. My projects span controllable video generation, multi-source representation alignment, and compositional 3D scene reconstruction.",
       "I have worked with Prof. Yong Li at FIBLAB and Prof. Yueqi Duan at the Tsinghua Spatial Intelligence & Vision Group. I am currently an R&D intern at Shanghai Coco Matrix Intelligent Technology, working on robotic model pre-training."
     ],
     "zh": [
-      "我是清华大学自动化系本科生，参加智能机器人英才班。我的研究兴趣包括具身系统中的世界模型、机器人与表征学习。",
+      "我是清华大学自动化系本科生。我的研究兴趣包括具身系统中的世界模型、机器人与表征学习。",
       "我关注如何让模型建立视觉观测与动作之间的联系，并在时间维度上保持空间一致性。目前的研究涉及可控视频生成、多源表征对齐，以及组合式三维场景重建。",
       "我曾在 FIBLAB 跟随李勇教授开展研究，也曾在清华大学空间智能与视觉研究组跟随段岳奇教授开展研究。目前在 Shanghai Coco Matrix Intelligent Technology 担任研发实习生，参与机器人模型预训练。"
     ]
