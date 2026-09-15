@@ -185,7 +185,9 @@
       ],
       "image": "assets/papers/airscape.webp",
       "image_width": 1000,
-      "image_height": 452
+      "image_height": 452,
+      "selected": true,
+      "selected_order": 1
     },
     {
       "key": "WorldREPA",
@@ -196,7 +198,9 @@
       "links": [],
       "image": "assets/papers/worldrepa.webp",
       "image_width": 1000,
-      "image_height": 486
+      "image_height": 486,
+      "selected": false,
+      "selected_order": 100
     },
     {
       "key": "WorldScape",
@@ -207,7 +211,9 @@
       "links": [],
       "image": "assets/papers/worldscape.webp",
       "image_width": 1000,
-      "image_height": 338
+      "image_height": 338,
+      "selected": false,
+      "selected_order": 100
     },
     {
       "key": "Worldscape-MoE",
@@ -218,7 +224,9 @@
       "links": [],
       "image": "assets/papers/worldscape-moe.webp",
       "image_width": 1000,
-      "image_height": 609
+      "image_height": 609,
+      "selected": false,
+      "selected_order": 100
     },
     {
       "key": "ReplicateAnyScene",
@@ -229,7 +237,9 @@
       "links": [],
       "image": "assets/papers/replicateanyscene.webp",
       "image_width": 938,
-      "image_height": 535
+      "image_height": 535,
+      "selected": false,
+      "selected_order": 100
     }
   ],
   "interests": [
@@ -303,5 +313,6 @@
         "保持空间一致性"
       ]
     }
-  }
+  },
+  "publication_view": "selected"
 }

@@ -1,8 +1,3 @@
-// Preserve the current section when switching languages.
-document.querySelectorAll('[data-language]').forEach(link => {
-  link.addEventListener('click', () => { link.hash = location.hash; });
-});
-
 const navLinks = [...document.querySelectorAll('.nav a')];
 const sections = [...document.querySelectorAll('main section[id]')];
 
@@ -38,3 +33,26 @@ window.addEventListener('resize', scheduleNavigationUpdate);
 window.addEventListener('hashchange', scheduleNavigationUpdate);
 window.addEventListener('load', scheduleNavigationUpdate);
 updateNavigation();
+
+
+const publicationList = document.querySelector('.publication-list');
+const publicationControls = document.querySelector('.publication-controls');
+if (publicationList && publicationControls) {
+  const chronologicalPapers = [...publicationList.querySelectorAll('.paper')];
+  const buttons = [...publicationControls.querySelectorAll('button')];
+  function setPublicationView(view) {
+    const papers = view === 'selected'
+      ? [...chronologicalPapers].sort((a, b) => Number(a.dataset.selectedOrder) - Number(b.dataset.selectedOrder))
+      : chronologicalPapers;
+    for (const paper of papers) {
+      paper.hidden = view === 'selected' && paper.dataset.selected !== 'true';
+      publicationList.append(paper);
+    }
+    buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.publicationView === view)));
+    document.querySelector('.publication-empty').hidden = papers.some(paper => !paper.hidden);
+    scheduleNavigationUpdate();
+  }
+  buttons.forEach(button => button.addEventListener('click', () => setPublicationView(button.dataset.publicationView)));
+  publicationControls.hidden = false;
+  setPublicationView(publicationList.dataset.defaultView);
+}

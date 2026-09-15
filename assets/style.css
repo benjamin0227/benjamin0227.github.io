@@ -18,3 +18,10 @@
 .entry{display:grid;grid-template-columns:76px minmax(0,1fr);gap:18px;padding-left:0;border-left:0;align-items:start}.entry-details{min-width:0}.organization-logo{display:flex;align-items:center;justify-content:center;width:76px;height:68px;margin-top:4px;padding:7px;border:1px solid var(--line);border-radius:6px;background:#fff}.organization-logo img{display:block;width:100%;height:100%;object-fit:contain}.organization-logo:hover{border-color:var(--blue)}.organization-logo--tsinghua{background:#683488;border-color:#683488;padding:9px}.organization-logo--tsinghua img{width:48px;height:48px}@media(max-width:650px){.entry{grid-template-columns:54px minmax(0,1fr);gap:13px}.organization-logo{width:54px;height:54px;padding:5px}.organization-logo--tsinghua img{width:40px;height:40px}}
 
 .organization-logo--tsinghua img{object-fit:cover;object-position:left}
+
+/* Keep contact links stacked and thumbnails subordinate at every screen size. */
+.profile .contact{display:grid;grid-template-columns:minmax(0,1fr);justify-items:start;gap:6px}.profile .contact>a{grid-column:1;white-space:nowrap}.profile .contact .contact-icon{width:1em;height:1em}
+.publication-list .paper{grid-template-columns:96px minmax(0,1fr);gap:18px}.publication-list .paper-figure{width:96px;height:76px;min-height:0;margin-top:0;align-self:center;padding:0;border:0;background:transparent}.publication-list .paper-figure img{width:96px;height:76px;max-height:76px;object-fit:contain}
+.publication-controls{display:flex;gap:6px;margin:0 0 20px}.publication-controls button{font:inherit;font-size:14px;line-height:1.5;cursor:pointer;border:1px solid var(--line);border-radius:5px;padding:5px 12px;background:white;color:var(--muted)}.publication-controls button[aria-pressed="true"]{color:var(--blue);background:#edf3fc;border-color:#c3d4ed}.publication-controls button:hover{border-color:var(--blue)}[hidden]{display:none!important}
+
+@media(max-width:650px){.publication-list .paper{grid-template-columns:76px minmax(0,1fr);gap:14px}.publication-list .paper-figure,.publication-list .paper-figure img{width:76px;height:64px;max-height:64px}}

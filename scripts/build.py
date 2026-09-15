@@ -1,6 +1,7 @@
 """Build both language pages using only the Python standard library."""
 import json
 import re
+import hashlib
 from html import escape as esc
 from pathlib import Path
 
@@ -62,17 +63,16 @@ for lang in ('en', 'zh'):
    title = f'<a class="paper-title-link" href="{esc(destination, quote=True)}" target="_blank" rel="noopener noreferrer" aria-label="{title} ({new_tab})">{title}</a>'
   thumbnail = f'<a class="paper-figure" href="{prefix}{esc(p["image"])}" target="_blank" rel="noopener" aria-label="{esc(p["key"])} · {"View figure" if lang == "en" else "查看论文配图"}"><img src="{prefix}{esc(p["image"])}" alt="{esc(p["key"])} {"overview figure" if lang == "en" else "概览图"}" width="{p['image_width']}" height="{p['image_height']}" loading="lazy"></a>'
   venue = local(p['venue']) if p['published'] else f'{p["year"]} · {t["manuscript"]}'
-  return f'<article class="paper">{thumbnail}<div class="paper-details"><div class="paper-top"><span class="paper-key">{esc(p["key"])}</span><span class="venue">{venue}</span></div><h3>{title}</h3><p class="authors">{authors}</p>{'<div class="paper-links">' + links + '</div>' if links else ''}</div></article>'
+  return f'<article class="paper" data-selected="{str(p.get("selected", False)).lower()}" data-selected-order="{p.get("selected_order", 100)}">{thumbnail}<div class="paper-details"><div class="paper-top"><span class="paper-key">{esc(p["key"])}</span><span class="venue">{venue}</span></div><h3>{title}</h3><p class="authors">{authors}</p>{'<div class="paper-links">' + links + '</div>' if links else ''}</div></article>'
  sections = [
   section('about',1,''.join(about_paragraph(p) for p in data['about'][lang])),
   section('news',2,'<ul class="news">'+''.join(f'<li><time>{esc(n["date"])}</time><p>{esc(n[lang])}</p></li>' for n in data['news'])+'</ul>'),
   section('interests',3,'<div class="interest-grid">'+''.join(f'<article><h3>{local(i["title"])}</h3><p>{local(i["text"])}</p></article>' for i in data['interests'])+'</div>'),
   section('education',4,entries(data['education'])+f'<h3 class="subheading">{t["research"]}</h3>'+entries(data['research'])),
   section('industry',5,entries(data['industry'])),
-  section('publications',6,f'<p class="legend">{t["legend"]}</p>'+''.join(paper(p) for p in data['publications'] if p['published'])+f'<h3 class="subheading">{t["manuscripts"]}</h3>'+''.join(paper(p) for p in data['publications'] if not p['published'])),
+  section('publications',6,f'<div class="publication-controls" role="group" aria-label="Publication view" hidden><button type="button" data-publication-view="date" aria-pressed="false">By date</button><button type="button" data-publication-view="selected" aria-pressed="false">Selected</button></div><p class="legend">{t["legend"]}</p><div class="publication-list" data-default-view="{esc(data.get("publication_view", "selected"))}">'+''.join(paper(p) for p in sorted(data['publications'], key=lambda p: p.get('date', str(p['year'])), reverse=True))+'</div><p class="publication-empty" hidden>No selected publications yet.</p>'),
  ]
  nav = ''.join(f'<a href="#{key}">{t[key]}</a>' for key in ('about','news','interests','education','industry','publications'))
- langs = '<span aria-current="page" lang="en">EN</span><a data-language href="./zh/" lang="zh-CN" hreflang="zh-CN">中文</a>' if lang == 'en' else '<a data-language href="../" lang="en" hreflang="en">EN</a><span aria-current="page" lang="zh-CN">中文</span>'
  profile = data['profile'][lang]
  description = 'Mingyuan Jia, Tsinghua University. Research in world models, embodied intelligence, robotics, and representation learning.' if lang == 'en' else 'Mingyuan Jia，清华大学自动化系本科生。研究方向：世界模型、具身智能、机器人与表征学习。'
  page = f'''<!doctype html>
@@ -85,7 +85,7 @@ for lang in ('en', 'zh'):
 <link rel="alternate" hreflang="en" href="{prefix}"><link rel="alternate" hreflang="zh-CN" href="{prefix}zh/">
 <link rel="alternate" hreflang="x-default" href="{prefix}">
 <link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="{prefix}assets/style.css"><script src="{prefix}assets/site.js" defer></script>
+<link rel="stylesheet" href="{prefix}assets/style.css?v={hashlib.sha256((ROOT / "assets/style.css").read_bytes()).hexdigest()[:10]}"><script src="{prefix}assets/site.js?v={hashlib.sha256((ROOT / "assets/site.js").read_bytes()).hexdigest()[:10]}" defer></script>
 </head>
 <body class="{lang}" id="top">
 <a class="skip" href="#content">{t['skip']}</a>
@@ -97,7 +97,6 @@ for lang in ('en', 'zh'):
 <p class="focus">{esc(profile[2])}</p>
 <div class="contact"><a href="mailto:{esc(data['email'])}">{icon('email')}{t['email']}</a><a href="{esc(data['scholar'])}" target="_blank" rel="noopener noreferrer" title="Google Scholar ↗">{icon('scholar')}Google Scholar</a><a href="{prefix}assets/files/MingyuanJia-CV.pdf" target="_blank" rel="noopener noreferrer" title="CV · PDF ↗">{icon('cv')}CV <span class="file-type">PDF</span></a></div>
 <nav class="nav" aria-label="{'Sections' if lang == 'en' else '章节'}">{nav}</nav>
-<nav class="languages" aria-label="{'Language' if lang == 'en' else '语言'}">{langs}</nav>
 </aside>
 <main id="content">{''.join(sections)}
 <footer><span>© {data['updated'][:4]} {local(data['name'])} · {t['updated']} {data['updated'][:7]}</span><a href="#top">{t['top']} ↑</a></footer>

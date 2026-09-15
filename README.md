@@ -70,3 +70,13 @@ python3 -m http.server 8000
 ## 经历机构标识
 
 教育、研究和业界经历的标识存放在 `assets/organizations/`，来自各机构官网或官方 GitHub 组织头像，原始资源 URL 记录于 `sources.json`。清华校徽使用官网白色图形，置于紫色背景上。每条经历的 `logo` 与 `url` 控制图标及官网链接，点击图标在新标签页打开机构主页。
+
+## 论文视图配置
+
+首页不再显示语言切换入口。论文默认显示 Selected，当前仅 AirScape。修改 `content.json`：
+- `publication_view`：`selected` 或 `date`，控制默认视图。
+- 每篇论文的 `selected`：`true` 加入精选，`false` 移出。
+- `selected_order`：精选顺序，数字越小越靠前。
+- `year`：按年份降序排列；需要精确顺序时添加 `date`（YYYY-MM-DD）。相同日期保持数据中的先后顺序。
+
+修改后运行 `python3 scripts/build.py`。关闭 JavaScript 时显示全部论文。CSS 和 JS 链接自动附带内容版本号，以避免继续使用旧布局缓存。
