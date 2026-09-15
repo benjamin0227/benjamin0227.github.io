@@ -64,3 +64,5 @@ python3 -m http.server 8000
 `content.json` 每篇论文的 `links` 支持 `Project`、`Paper`、`Code`，按此顺序显示。只填写已公开且核实的 URL；空缺入口不显示。论文标题优先链接项目页，其次论文页，无可用链接时保留普通标题。论文外链、Scholar 和 CV 在新标签页打开，站内导航仍在当前页跳转。
 
 链接分层参考 https://wkwan7.github.io/ ，样式独立实现。AirScape 代码入口依据其官方项目页核实：https://github.com/EmbodiedCity/AirScape.code 。
+
+论文展示图位于 `assets/papers/`，从用户提供 PDF 中提取：AirScape 第 2 页、WorldScape 第 2 页、WorldREPA 第 3 页、MoE 第 2 页、ReplicateAnyScene 第 1 页。`content.json` 的 `image` 字段指定图片。论文列表不再展示个人贡献和作者身份说明；点击缩略图在新标签页查看大图。

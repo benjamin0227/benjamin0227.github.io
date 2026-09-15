@@ -6,8 +6,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 data = json.loads((ROOT / 'content.json').read_text())
 labels = {
- 'en': {'about':'About', 'news':'News', 'education':'Education & research', 'industry':'Industry experience', 'publications':'Publications & preprints', 'interests':'Interests', 'research':'Research experience', 'published':'Publications', 'manuscripts':'Research manuscripts', 'legend':'* Equal contribution. Project leadership is noted separately.', 'manuscript':'Research manuscript', 'email':'Email', 'skip':'Skip to content', 'updated':'Updated', 'top':'Back to top', 'Paper':'Paper', 'Project':'Project', 'Code':'Code'},
- 'zh': {'about':'关于我', 'news':'最新动态', 'education':'教育与研究经历', 'industry':'业界经历', 'publications':'论文与预印本', 'interests':'研究兴趣', 'research':'研究经历', 'published':'已发表论文', 'manuscripts':'研究稿件', 'legend':'* 表示同等贡献；项目负责人身份单独标注。', 'manuscript':'研究稿件', 'email':'邮箱', 'skip':'跳至正文', 'updated':'更新于', 'top':'返回顶部', 'Paper':'论文', 'Project':'项目主页', 'Code':'代码'}
+ 'en': {'about':'About', 'news':'News', 'education':'Education & research', 'industry':'Industry experience', 'publications':'Publications & preprints', 'interests':'Interests', 'research':'Research experience', 'published':'Publications', 'manuscripts':'Research manuscripts', 'legend':'* Equal contribution. ', 'manuscript':'Research manuscript', 'email':'Email', 'skip':'Skip to content', 'updated':'Updated', 'top':'Back to top', 'Paper':'Paper', 'Project':'Project', 'Code':'Code'},
+ 'zh': {'about':'关于我', 'news':'最新动态', 'education':'教育与研究经历', 'industry':'业界经历', 'publications':'论文与预印本', 'interests':'研究兴趣', 'research':'研究经历', 'published':'已发表论文', 'manuscripts':'研究稿件', 'legend':'* 表示同等贡献。', 'manuscript':'研究稿件', 'email':'邮箱', 'skip':'跳至正文', 'updated':'更新于', 'top':'返回顶部', 'Paper':'论文', 'Project':'项目主页', 'Code':'代码'}
 }
 
 def icon(kind):
@@ -40,8 +40,9 @@ for lang in ('en', 'zh'):
   title = esc(p['title'])
   if destination:
    title = f'<a class="paper-title-link" href="{esc(destination, quote=True)}" target="_blank" rel="noopener noreferrer" aria-label="{title} ({new_tab})">{title}</a>'
+  thumbnail = f'<a class="paper-figure" href="{prefix}{esc(p["image"])}" target="_blank" rel="noopener" aria-label="{esc(p["key"])} · {"View figure" if lang == "en" else "查看论文配图"}"><img src="{prefix}{esc(p["image"])}" alt="{esc(p["key"])} {"overview figure" if lang == "en" else "概览图"}" loading="lazy"></a>'
   venue = local(p['venue']) if p['published'] else f'{p["year"]} · {t["manuscript"]}'
-  return f'<article class="paper"><div class="paper-top"><span class="paper-key">{esc(p["key"])}</span><span class="venue">{venue}</span></div><h3>{title}</h3><p class="authors">{authors}</p><p class="summary">{local(p["summary"])}</p><p class="role">{local(p["role"])}</p>{'<div class="paper-links">' + links + '</div>' if links else ''}</article>'
+  return f'<article class="paper">{thumbnail}<div class="paper-details"><div class="paper-top"><span class="paper-key">{esc(p["key"])}</span><span class="venue">{venue}</span></div><h3>{title}</h3><p class="authors">{authors}</p>{'<div class="paper-links">' + links + '</div>' if links else ''}</div></article>'
  sections = [
   section('about',1,''.join(f'<p>{esc(p)}</p>' for p in data['about'][lang])),
   section('news',2,'<ul class="news">'+''.join(f'<li><time>{esc(n["date"])}</time><p>{esc(n[lang])}</p></li>' for n in data['news'])+'</ul>'),
