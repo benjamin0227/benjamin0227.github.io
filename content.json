@@ -21,14 +21,12 @@
   "about": {
     "en": [
       "I am an undergraduate in the Department of Automation at Tsinghua University. My research interests lie in world models for embodied systems, robotics, and representation learning.",
-      "My research follows two connected directions. On the model side, I aim to improve visual world state modeling through representation learning: connecting world states with actions, preserving spatiotemporal consistency, and developing richer representations that support understanding and interaction.",
-      "On the agent side, I am interested in adaptation, especially in robotic systems. I view in-context learning (ICL), test-time training (TTT), continual and lifelong learning, and RSI as different forms of adaptation. My long-term goal is to bring these directions together to build intelligent robotic systems that can adapt to changing environments, tasks, and experience.",
+      "My research connects visual world state modeling with robot adaptation. I explore representation learning to link world states with actions while preserving spatiotemporal consistency, alongside adaptation through in-context learning, test-time training, continual and lifelong learning, and RSI. My goal is to build intelligent robotic systems that learn from experience and adapt to changing tasks and environments.",
       "I have worked with Prof. Yong Li at FIBLAB and Prof. Yueqi Duan at the Tsinghua Spatial Intelligence & Vision Group. I am currently an R&D intern at Shanghai Coco Matrix Intelligent Technology, working on robotic model pre-training."
     ],
     "zh": [
       "我是清华大学自动化系本科生。我的研究兴趣包括具身系统中的世界模型、机器人与表征学习。",
-      "我的研究围绕两条相互关联的主线展开。在模型层面，我希望通过表征学习改进视觉世界状态建模：建立世界状态与动作之间的联系，保持时空一致性，并发展更丰富的表征能力，以支持理解与交互。",
-      "在智能体层面，我关注系统的适应能力，尤其是机器人系统。我将上下文学习（ICL）、测试时训练（TTT）、持续学习与终身学习，以及 RSI，视为适应能力的不同体现形式。我的长期目标是将这两条主线结合，构建能够适应环境与任务变化、并随经验积累而调整的智能机器人系统。",
+      "我的研究连接视觉世界状态建模与机器人的适应能力：通过表征学习建立世界状态与动作的联系，并保持时空一致性；同时探索上下文学习、测试时训练、持续与终身学习以及 RSI 等适应机制，最终构建能从经验中学习、适应任务与环境变化的智能机器人系统。",
       "我曾在 FIBLAB 跟随李勇教授开展研究，也曾在清华大学空间智能与视觉研究组跟随段岳奇教授开展研究。目前在 Shanghai Coco Matrix Intelligent Technology 担任研发实习生，参与机器人模型预训练。"
     ]
   },
@@ -293,9 +291,8 @@
       ],
       "idea": [
         "visual world state modeling",
-        "connecting world states with actions",
+        "robot adaptation",
         "spatiotemporal consistency",
-        "adaptation",
         "intelligent robotic systems"
       ]
     },
