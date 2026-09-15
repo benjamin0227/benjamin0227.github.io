@@ -91,3 +91,9 @@ python3 -m http.server 8000
 ```
 
 `alt` 为必填图片描述，`caption` 可省略。运行 `python3 scripts/build.py` 后提交数据、图片及生成页面即可。
+
+## 搜索引擎发现
+
+`content.json` 的 `site_url` 为正式根网址。构建脚本自动生成 `robots.txt`（允许抓取并声明站点地图）与 `sitemap.xml`（英文首页与仍维护的中文页面），并同步生成各页面的 canonical 与语言备用地址。未将旧原型页、验证文件、章节锚点列入站点地图。未列入站点地图不代表禁止收录。
+
+可在 Google Search Console 和 Bing Webmaster Tools 的站点地图入口提交 `https://benjamin0227.github.io/sitemap.xml`。这些文件有助于发现网页，不保证收录和排名。

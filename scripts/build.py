@@ -2,11 +2,13 @@
 import json
 import re
 import hashlib
+import xml.etree.ElementTree as ET
 from html import escape as esc
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 data = json.loads((ROOT / 'content.json').read_text())
+site_url = data['site_url'].rstrip('/') + '/'
 labels = {
  'en': {'hobbies':'Hobbies', 'about':'About', 'news':'News', 'education':'Education & research', 'industry':'Industry experience', 'publications':'Publications & preprints', 'interests':'Interests', 'research':'Research experience', 'published':'Publications', 'manuscripts':'Research manuscripts', 'legend':'* Equal contribution. ', 'manuscript':'Research manuscript', 'email':'Email', 'skip':'Skip to content', 'updated':'Updated', 'top':'Back to top', 'Paper':'Paper', 'Project':'Project', 'Code':'Code'},
  'zh': {'hobbies':'个人爱好', 'about':'关于我', 'news':'最新动态', 'education':'教育与研究经历', 'industry':'业界经历', 'publications':'论文与预印本', 'interests':'研究兴趣', 'research':'研究经历', 'published':'已发表论文', 'manuscripts':'研究稿件', 'legend':'* 表示同等贡献。', 'manuscript':'研究稿件', 'email':'邮箱', 'skip':'跳至正文', 'updated':'更新于', 'top':'返回顶部', 'Paper':'论文', 'Project':'项目主页', 'Code':'代码'}
@@ -94,8 +96,9 @@ for lang in ('en', 'zh'):
 <title>{local(data['name'])} · {'Tsinghua University' if lang == 'en' else '清华大学'}</title>
 <meta name="description" content="{esc(description, quote=True)}">
 <meta name="theme-color" content="#245caf">
-<link rel="alternate" hreflang="en" href="{prefix}"><link rel="alternate" hreflang="zh-CN" href="{prefix}zh/">
-<link rel="alternate" hreflang="x-default" href="{prefix}">
+<link rel="canonical" href="{site_url}{'zh/' if lang == 'zh' else ''}">
+<link rel="alternate" hreflang="en" href="{site_url}"><link rel="alternate" hreflang="zh-CN" href="{site_url}zh/">
+<link rel="alternate" hreflang="x-default" href="{site_url}">
 <link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{prefix}assets/style.css?v={hashlib.sha256((ROOT / "assets/style.css").read_bytes()).hexdigest()[:10]}"><script src="{prefix}assets/site.js?v={hashlib.sha256((ROOT / "assets/site.js").read_bytes()).hexdigest()[:10]}" defer></script>
 </head>
@@ -117,3 +120,15 @@ for lang in ('en', 'zh'):
  out.parent.mkdir(exist_ok=True)
  out.write_text(page)
  print(f'Built {out.relative_to(ROOT)}')
+
+# List maintained public pages, not legacy prototypes or verification files.
+namespace = 'http://www.sitemaps.org/schemas/sitemap/0.9'
+ET.register_namespace('', namespace)
+urlset = ET.Element(f'{{{namespace}}}urlset')
+for route in ('', 'zh/'):
+ entry = ET.SubElement(urlset, f'{{{namespace}}}url')
+ ET.SubElement(entry, f'{{{namespace}}}loc').text = site_url + route
+ET.indent(urlset, space='  ')
+ET.ElementTree(urlset).write(ROOT / 'sitemap.xml', encoding='utf-8', xml_declaration=True)
+(ROOT / 'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: ' + site_url + 'sitemap.xml\n')
+print('Built robots.txt and sitemap.xml')

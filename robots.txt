@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://benjamin0227.github.io/sitemap.xml
