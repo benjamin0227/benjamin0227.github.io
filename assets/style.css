@@ -12,3 +12,5 @@
 .contact .contact-icon{width:1em;height:1em;flex:0 0 1em}.contact a{gap:8px;line-height:1.5}
 
 @media(min-width:651px){.profile{max-height:calc(100dvh - 60px);overflow-y:auto;padding-bottom:5px}}
+
+.about-institution{font-weight:600}.about-person{color:var(--blue);font-weight:600}.about-interest{color:inherit;background:linear-gradient(transparent 55%,#e7effb 55%);padding:0 .06em;box-decoration-break:clone;-webkit-box-decoration-break:clone}.about-idea{font-style:italic}.zh .about-idea{font-style:normal;font-weight:500}

@@ -253,5 +253,45 @@
         "zh": "从多源信息中学习互补的几何与语义知识。"
       }
     }
-  ]
+  ],
+  "about_emphasis": {
+    "en": {
+      "institution": [
+        "Tsinghua University",
+        "FIBLAB",
+        "Tsinghua Spatial Intelligence & Vision Group",
+        "Shanghai Coco Matrix Intelligent Technology"
+      ],
+      "person": [
+        "Prof. Yong Li",
+        "Prof. Yueqi Duan"
+      ],
+      "interest": [
+        "world models for embodied systems, robotics, and representation learning"
+      ],
+      "idea": [
+        "connect visual observations with actions",
+        "preserve spatial consistency over time"
+      ]
+    },
+    "zh": {
+      "institution": [
+        "清华大学",
+        "FIBLAB",
+        "清华大学空间智能与视觉研究组",
+        "Shanghai Coco Matrix Intelligent Technology"
+      ],
+      "person": [
+        "李勇教授",
+        "段岳奇教授"
+      ],
+      "interest": [
+        "具身系统中的世界模型、机器人与表征学习"
+      ],
+      "idea": [
+        "视觉观测与动作之间的联系",
+        "保持空间一致性"
+      ]
+    }
+  }
 }

@@ -1,5 +1,6 @@
 """Build both language pages using only the Python standard library."""
 import json
+import re
 from html import escape as esc
 from pathlib import Path
 
@@ -25,6 +26,20 @@ for lang in ('en', 'zh'):
  prefix = './' if lang == 'en' else '../'
  def local(value):
   return esc(value[lang] if isinstance(value, dict) else value)
+ def about_paragraph(text):
+  phrases = {phrase: kind for kind, values in data.get('about_emphasis', {}).get(lang, {}).items() for phrase in values}
+  if not phrases:
+   return '<p>' + esc(text) + '</p>'
+  pattern = re.compile('|'.join(re.escape(phrase) for phrase in sorted(phrases, key=len, reverse=True)))
+  parts, position = [], 0
+  for match in pattern.finditer(text):
+   parts.append(esc(text[position:match.start()]))
+   kind = phrases[match.group()]
+   tag = {'institution':'strong', 'person':'strong', 'interest':'mark', 'idea':'em'}[kind]
+   parts.append(f'<{tag} class="about-{kind}">{esc(match.group())}</{tag}>')
+   position = match.end()
+  parts.append(esc(text[position:]))
+  return '<p>' + ''.join(parts) + '</p>'
  def section(key, number, body):
   return f'<section class="section {key}" id="{key}" aria-labelledby="heading-{key}"><div class="section-head"><span class="num" aria-hidden="true">{number:02d}</span><h2 id="heading-{key}">{t[key]}</h2></div>{body}</section>'
  def entries(items):
@@ -44,7 +59,7 @@ for lang in ('en', 'zh'):
   venue = local(p['venue']) if p['published'] else f'{p["year"]} · {t["manuscript"]}'
   return f'<article class="paper">{thumbnail}<div class="paper-details"><div class="paper-top"><span class="paper-key">{esc(p["key"])}</span><span class="venue">{venue}</span></div><h3>{title}</h3><p class="authors">{authors}</p>{'<div class="paper-links">' + links + '</div>' if links else ''}</div></article>'
  sections = [
-  section('about',1,''.join(f'<p>{esc(p)}</p>' for p in data['about'][lang])),
+  section('about',1,''.join(about_paragraph(p) for p in data['about'][lang])),
   section('news',2,'<ul class="news">'+''.join(f'<li><time>{esc(n["date"])}</time><p>{esc(n[lang])}</p></li>' for n in data['news'])+'</ul>'),
   section('interests',3,'<div class="interest-grid">'+''.join(f'<article><h3>{local(i["title"])}</h3><p>{local(i["text"])}</p></article>' for i in data['interests'])+'</div>'),
   section('education',4,entries(data['education'])+f'<h3 class="subheading">{t["research"]}</h3>'+entries(data['research'])),
