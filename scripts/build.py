@@ -16,6 +16,8 @@ labels = {
 
 def icon(kind):
  paths = {
+  'book': '<path d="M12 5C9 3 5 3 2 4v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1Zm0 0v15"/>',
+  'x': '<path d="M4 3h4l12 18h-4L4 3Zm16 0L4 21"/>',
   'project': '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>',
   'code': '<path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-14-2 16"/>',
   'email': '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
@@ -87,6 +89,7 @@ for lang in ('en', 'zh'):
  ]
  sections.append(section('hobbies',7,hobbies()))
  nav = ''.join(f'<a href="#{key}">{t[key]}</a>' for key in ('about','news','interests','education','industry','publications','hobbies'))
+ social_links = ''.join(f'<a href="{esc(item["url"], quote=True)}" target="_blank" rel="noopener noreferrer">{icon(item["icon"])}{esc(item["label"])}</a>' for item in data.get('social_links', []))
  profile = data['profile'][lang]
  description = 'Mingyuan Jia, Tsinghua University. Research in world models, embodied intelligence, robotics, and representation learning.' if lang == 'en' else 'Mingyuan Jia，清华大学自动化系本科生。研究方向：世界模型、具身智能、机器人与表征学习。'
  page = f'''<!doctype html>
@@ -110,7 +113,7 @@ for lang in ('en', 'zh'):
 <h1>{local(data['name'])}<span class="preferred-name">({esc(data['preferred_name'])})</span></h1>
 <p class="bio">{esc(profile[0])}<br><strong>{esc(profile[1])}</strong></p>
 <p class="focus">{esc(profile[2])}</p>
-<div class="contact"><a href="mailto:{esc(data['email'])}">{icon('email')}{t['email']}</a><a href="{esc(data['scholar'])}" target="_blank" rel="noopener noreferrer" title="Google Scholar ↗">{icon('scholar')}Google Scholar</a><a href="{prefix}assets/files/MingyuanJia-CV.pdf" target="_blank" rel="noopener noreferrer" title="CV · PDF ↗">{icon('cv')}CV <span class="file-type">PDF</span></a></div>
+<div class="contact"><a href="mailto:{esc(data['email'])}">{icon('email')}{t['email']}</a><a href="{esc(data['scholar'])}" target="_blank" rel="noopener noreferrer" title="Google Scholar ↗">{icon('scholar')}Google Scholar</a><a href="{prefix}assets/files/MingyuanJia-CV.pdf" target="_blank" rel="noopener noreferrer" title="CV · PDF ↗">{icon('cv')}CV <span class="file-type">PDF</span></a>{social_links}</div>
 <nav class="nav" aria-label="{'Sections' if lang == 'en' else '章节'}">{nav}</nav>
 </aside>
 <main id="content">{''.join(sections)}

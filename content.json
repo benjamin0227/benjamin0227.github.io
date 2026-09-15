@@ -371,5 +371,17 @@
     }
   ],
   "preferred_name": "Benjamin",
-  "site_url": "https://benjamin0227.github.io/"
+  "site_url": "https://benjamin0227.github.io/",
+  "social_links": [
+    {
+      "label": "小红书",
+      "icon": "book",
+      "url": "https://www.xiaohongshu.com/user/profile/6916f0350000000032015033"
+    },
+    {
+      "label": "X / Twitter",
+      "icon": "x",
+      "url": "https://x.com/nROweyUXqf3100"
+    }
+  ]
 }
