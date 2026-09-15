@@ -10,6 +10,14 @@ labels = {
  'zh': {'about':'关于我', 'news':'最新动态', 'education':'教育与研究经历', 'industry':'业界经历', 'publications':'论文与预印本', 'interests':'研究兴趣', 'research':'研究经历', 'published':'已发表论文', 'manuscripts':'研究稿件', 'legend':'* 表示同等贡献；项目负责人身份单独标注。', 'manuscript':'研究稿件', 'email':'邮箱', 'skip':'跳至正文', 'updated':'更新于', 'top':'返回顶部', 'Paper':'论文', 'Project':'项目主页'}
 }
 
+def icon(kind):
+ paths = {
+  'email': '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
+  'scholar': '<path d="m2 9 10-5 10 5-10 5-10-5Zm4 2v6c4 3 8 3 12 0v-6M22 9v8"/>',
+  'cv': '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6Zm0 0v6h6M8 13h8M8 17h6"/>'
+ }
+ return '<svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + paths[kind] + '</svg>'
+
 for lang in ('en', 'zh'):
  t = labels[lang]
  prefix = './' if lang == 'en' else '../'
@@ -56,7 +64,7 @@ for lang in ('en', 'zh'):
 <h1>{local(data['name'])}</h1>
 <p class="bio">{esc(profile[0])}<br><strong>{esc(profile[1])}</strong></p>
 <p class="focus">{esc(profile[2])}</p>
-<div class="contact"><a href="mailto:{esc(data['email'])}">{t['email']}</a><a href="{esc(data['scholar'])}">Google Scholar</a></div>
+<div class="contact"><a href="mailto:{esc(data['email'])}">{icon('email')}{t['email']}</a><a href="{esc(data['scholar'])}">{icon('scholar')}Google Scholar</a><a href="{prefix}assets/files/MingyuanJia-CV.pdf">{icon('cv')}CV <span class="file-type">PDF</span></a></div>
 <nav class="nav" aria-label="{'Sections' if lang == 'en' else '章节'}">{nav}</nav>
 <nav class="languages" aria-label="{'Language' if lang == 'en' else '语言'}">{langs}</nav>
 </aside>
