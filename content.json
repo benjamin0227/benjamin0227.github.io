@@ -1,0 +1,43 @@
+{
+  "name": {"en": "Mingyuan Jia", "zh": "Mingyuan Jia"},
+  "email": "jmy23@mails.tsinghua.edu.cn",
+  "scholar": "https://scholar.google.com/citations?user=em5g4N8AAAAJ",
+  "updated": "2026-09-15",
+  "profile": {
+    "en": ["Undergraduate · Automation", "Tsinghua University", "World models & embodied intelligence"],
+    "zh": ["本科生 · 自动化系", "清华大学", "世界模型与具身智能"]
+  },
+  "about": {
+    "en": ["I am an undergraduate in the Department of Automation at Tsinghua University, in the Talent Program for Intelligent Robotics. My research interests lie in world models for embodied systems, robotics, and representation learning.", "I work on learning models that connect visual observations with actions and preserve spatial consistency over time. My projects span controllable video generation, multi-source representation alignment, and compositional 3D scene reconstruction.", "I have worked with Prof. Yong Li at FIBLAB and Prof. Yueqi Duan at the Tsinghua Spatial Intelligence & Vision Group. I am currently an R&D intern at Shanghai Coco Matrix Intelligent Technology, working on robotic model pre-training."],
+    "zh": ["我是清华大学自动化系本科生，参加智能机器人英才班。我的研究兴趣包括具身系统中的世界模型、机器人与表征学习。", "我关注如何让模型建立视觉观测与动作之间的联系，并在时间维度上保持空间一致性。目前的研究涉及可控视频生成、多源表征对齐，以及组合式三维场景重建。", "我曾在 FIBLAB 跟随李勇教授开展研究，也曾在清华大学空间智能与视觉研究组跟随段岳奇教授开展研究。目前在 Shanghai Coco Matrix Intelligent Technology 担任研发实习生，参与机器人模型预训练。"]
+  },
+  "news": [
+    {"date": "2026.07", "en": "Joined Shanghai Coco Matrix Intelligent Technology as an R&D intern, working on robotic model pre-training.", "zh": "加入 Shanghai Coco Matrix Intelligent Technology，担任研发实习生，参与机器人模型预训练。"},
+    {"date": "2026.02", "en": "Started research with Prof. Yueqi Duan at the Tsinghua Spatial Intelligence & Vision Group.", "zh": "开始在清华大学空间智能与视觉研究组跟随段岳奇教授开展研究。"},
+    {"date": "2025.11", "en": "Joined Manifold AI as an R&D intern to work on WorldScape.", "zh": "加入 Manifold AI，担任研发实习生，参与 WorldScape 研究。"},
+    {"date": "2025", "en": "AirScape appeared at ACM Multimedia 2025, BNI track (Oral).", "zh": "AirScape 发表于 ACM Multimedia 2025，BNI 赛道口头报告。"}
+  ],
+  "education": [
+    {"date": {"en": "Sep 2023 — Present", "zh": "2023.09 — 至今"}, "title": {"en": "Tsinghua University", "zh": "清华大学"}, "subtitle": {"en": "Department of Automation · Undergraduate", "zh": "自动化系 · 本科"}, "text": {"en": "Talent Program for Intelligent Robotics. Overall GPA: 3.88; major GPA: 3.7. Top 20%.", "zh": "智能机器人英才班。总 GPA：3.88；专业 GPA：3.7；排名前 20%。"}}
+  ],
+  "research": [
+    {"date": {"en": "Feb — Aug 2026", "zh": "2026.02 — 2026.08"}, "title": {"en": "Spatial Intelligence & Vision Group", "zh": "空间智能与视觉研究组"}, "subtitle": {"en": "Tsinghua University · Advisor: Prof. Yueqi Duan", "zh": "清华大学 · 导师：段岳奇教授"}, "text": {"en": "Compositional 3D scene reconstruction and evaluation.", "zh": "组合式三维场景重建与评测。"}},
+    {"date": {"en": "May 2025 — Apr 2026", "zh": "2025.05 — 2026.04"}, "title": {"en": "FIBLAB", "zh": "FIBLAB"}, "subtitle": {"en": "Tsinghua University · Advisor: Prof. Yong Li", "zh": "清华大学 · 导师：李勇教授"}, "text": {"en": "Controllable world models and spatially consistent video generation.", "zh": "可控世界模型与空间一致性视频生成。"}}
+  ],
+  "industry": [
+    {"date": {"en": "Jul 2026 — Present", "zh": "2026.07 — 至今"}, "title": {"en": "Shanghai Coco Matrix Intelligent Technology", "zh": "Shanghai Coco Matrix Intelligent Technology"}, "subtitle": {"en": "R&D Intern · Mentor: Yuxiang Gao", "zh": "研发实习生 · 导师：Yuxiang Gao"}, "text": {"en": "Core member of the robotic model pre-training team.", "zh": "机器人模型预训练团队核心成员之一。"}},
+    {"date": {"en": "Nov 2025 — Apr 2026", "zh": "2025.11 — 2026.04"}, "title": {"en": "Manifold AI", "zh": "Manifold AI"}, "subtitle": {"en": "R&D Intern · Mentors: Chen Gao, Wei Wu", "zh": "研发实习生 · 导师：Chen Gao、Wei Wu"}, "text": {"en": "Key contributor to WorldScape, focusing on 3D spatial consistency training and memory-oriented KV cache optimization.", "zh": "WorldScape 的主要贡献者，负责三维空间一致性训练与面向记忆的 KV 缓存优化。"}}
+  ],
+  "publications": [
+    {"key":"AirScape", "year":"2025", "published":true, "title":"AirScape: An Aerial Generative World Model with Motion Controllability", "authors":"Baining Zhao*, Rongze Tang*, Mingyuan Jia*, Ziyou Wang*, Fanhang Man, Xin Zhang, Yu Shang, Weichen Zhang, Wei Wu, Chen Gao, Xinlei Chen, Yong Li", "venue":{"en":"ACM Multimedia 2025 · BNI Oral", "zh":"ACM Multimedia 2025 · BNI 口头报告"}, "role":{"en":"Co-first author", "zh":"共同第一作者"}, "summary":{"en":"A motion-controllable aerial world model. I worked on data curation, the self-play training framework, evaluation, and open-source maintenance.", "zh":"面向空中智能体的运动可控世界模型。我参与数据整理、自博弈训练框架、实验评测与开源维护。"}, "links":[["Paper","https://arxiv.org/abs/2507.08885"],["Project","https://embodiedcity.github.io/AirScape/"]]},
+    {"key":"WorldREPA", "year":"2026", "published":false, "title":"WorldREPA: Extending Representation Alignment for Multi-source World Knowledge Learning", "authors":"Jiaao Tang*, Mingyuan Jia*, Zhaolu Wang*, Xinhao Jin, Xin Zhang, Jianjie Fang, Baining Zhao, Yu Shang, Chen Gao, Wei Wu, Yong Li", "role":{"en":"Co-first author · Project lead", "zh":"共同第一作者 · 项目负责人"}, "summary":{"en":"Lightweight multi-source alignment for video diffusion models. I worked on injecting geometric and semantic knowledge and analyzing representation consistency.", "zh":"面向视频扩散模型的轻量多源对齐。我负责几何与语义知识注入，以及表征一致性分析。"}, "links":[]},
+    {"key":"WorldScape", "year":"2026", "published":false, "title":"Efficient Real-Time Interactive World Modeling with Versatile Control", "authors":"Yu Meng*, Chen Gao, Baining Zhao*, Mingyuan Jia*, Rongze Tang, Ziyou Wang, Jianjie Fang, Wan Qin, Yingshan Lei, Jiaao Tang, Jiaao Li, Xin Zhang, Yu Shang, Wei Wu, Xinlei Chen, Xiao-Ping Zhang, Yong Li", "role":{"en":"Co-first author", "zh":"共同第一作者"}, "summary":{"en":"An autoregressive video diffusion model for streaming world simulation. My contributions focus on 3D consistency training and memory-oriented KV cache optimization.", "zh":"用于流式世界模拟的自回归视频扩散模型。我主要负责三维一致性训练与面向记忆的 KV 缓存优化。"}, "links":[]},
+    {"key":"Worldscape-MoE", "year":"2026", "published":false, "title":"Worldscape-MoE: A Unified Mixture-of-Experts World Model for Scalable Heterogeneous Action Control", "authors":"Jianjie Fang*, Yongyan Xu*, Ziyou Wang*, Yuchao Huang, Zhaolu Wang, Rongze Tang, Mingyuan Jia, Baining Zhao, Weichen Zhang, Xin Zhang, Haisheng Su, Yu Shang, Chen Gao, Wei Wu, Xinlei Chen, Yong Li", "role":{"en":"Co-author", "zh":"共同作者"}, "summary":{"en":"A mixture-of-experts world model that brings heterogeneous action controls into a shared framework and supports progressive expansion.", "zh":"通过混合专家架构统一异构动作控制，并支持逐步扩展的世界模型。"}, "links":[]},
+    {"key":"ReplicateAnyScene", "year":"2026", "published":false, "title":"ReplicateAnyScene: Zero-Shot Video-to-3D Composition via Textual-Visual-Spatial Alignment", "authors":"Mingyu Dong*, Chong Xia*, Mingyuan Jia*, Weichen Lyu, Long Xu, Zheng Zhu, Yueqi Duan", "role":{"en":"Co-first author", "zh":"共同第一作者"}, "summary":{"en":"Zero-shot compositional 3D scene reconstruction from video. I built the C3DR benchmark, reproduced baselines, and developed multi-dimensional evaluation metrics.", "zh":"从视频出发的零样本组合式三维场景重建。我构建 C3DR 基准、复现对比方法，并设计多维评测指标。"}, "links":[]}
+  ],
+  "interests": [
+    {"title":{"en":"World models", "zh":"世界模型"}, "text":{"en":"Action-conditioned generation, spatial consistency, and long-horizon memory for embodied systems.", "zh":"面向具身系统的动作条件生成、空间一致性与长时记忆。"}},
+    {"title":{"en":"Robotics", "zh":"机器人"}, "text":{"en":"Connecting learned visual models with perception, manipulation, and real-world interaction.", "zh":"将视觉模型与感知、操作及真实世界交互相结合。"}},
+    {"title":{"en":"Representation learning", "zh":"表征学习"}, "text":{"en":"Learning complementary geometric and semantic knowledge from multiple sources.", "zh":"从多源信息中学习互补的几何与语义知识。"}}
+  ]
+}
