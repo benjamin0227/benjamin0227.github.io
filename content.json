@@ -173,7 +173,9 @@
           "https://github.com/EmbodiedCity/AirScape.code"
         ]
       ],
-      "image": "assets/papers/airscape.webp"
+      "image": "assets/papers/airscape.webp",
+      "image_width": 1000,
+      "image_height": 452
     },
     {
       "key": "WorldREPA",
@@ -182,7 +184,9 @@
       "title": "WorldREPA: Extending Representation Alignment for Multi-source World Knowledge Learning",
       "authors": "Jiaao Tang*, Mingyuan Jia*, Zhaolu Wang*, Xinhao Jin, Xin Zhang, Jianjie Fang, Baining Zhao, Yu Shang, Chen Gao, Wei Wu, Yong Li",
       "links": [],
-      "image": "assets/papers/worldrepa.webp"
+      "image": "assets/papers/worldrepa.webp",
+      "image_width": 1000,
+      "image_height": 486
     },
     {
       "key": "WorldScape",
@@ -191,7 +195,9 @@
       "title": "Efficient Real-Time Interactive World Modeling with Versatile Control",
       "authors": "Yu Meng*, Chen Gao, Baining Zhao*, Mingyuan Jia*, Rongze Tang, Ziyou Wang, Jianjie Fang, Wan Qin, Yingshan Lei, Jiaao Tang, Jiaao Li, Xin Zhang, Yu Shang, Wei Wu, Xinlei Chen, Xiao-Ping Zhang, Yong Li",
       "links": [],
-      "image": "assets/papers/worldscape.webp"
+      "image": "assets/papers/worldscape.webp",
+      "image_width": 1000,
+      "image_height": 338
     },
     {
       "key": "Worldscape-MoE",
@@ -200,7 +206,9 @@
       "title": "Worldscape-MoE: A Unified Mixture-of-Experts World Model for Scalable Heterogeneous Action Control",
       "authors": "Jianjie Fang*, Yongyan Xu*, Ziyou Wang*, Yuchao Huang, Zhaolu Wang, Rongze Tang, Mingyuan Jia, Baining Zhao, Weichen Zhang, Xin Zhang, Haisheng Su, Yu Shang, Chen Gao, Wei Wu, Xinlei Chen, Yong Li",
       "links": [],
-      "image": "assets/papers/worldscape-moe.webp"
+      "image": "assets/papers/worldscape-moe.webp",
+      "image_width": 1000,
+      "image_height": 609
     },
     {
       "key": "ReplicateAnyScene",
@@ -209,7 +217,9 @@
       "title": "ReplicateAnyScene: Zero-Shot Video-to-3D Composition via Textual-Visual-Spatial Alignment",
       "authors": "Mingyu Dong*, Chong Xia*, Mingyuan Jia*, Weichen Lyu, Long Xu, Zheng Zhu, Yueqi Duan",
       "links": [],
-      "image": "assets/papers/replicateanyscene.webp"
+      "image": "assets/papers/replicateanyscene.webp",
+      "image_width": 938,
+      "image_height": 535
     }
   ],
   "interests": [

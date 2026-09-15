@@ -40,18 +40,18 @@ for lang in ('en', 'zh'):
   title = esc(p['title'])
   if destination:
    title = f'<a class="paper-title-link" href="{esc(destination, quote=True)}" target="_blank" rel="noopener noreferrer" aria-label="{title} ({new_tab})">{title}</a>'
-  thumbnail = f'<a class="paper-figure" href="{prefix}{esc(p["image"])}" target="_blank" rel="noopener" aria-label="{esc(p["key"])} · {"View figure" if lang == "en" else "查看论文配图"}"><img src="{prefix}{esc(p["image"])}" alt="{esc(p["key"])} {"overview figure" if lang == "en" else "概览图"}" loading="lazy"></a>'
+  thumbnail = f'<a class="paper-figure" href="{prefix}{esc(p["image"])}" target="_blank" rel="noopener" aria-label="{esc(p["key"])} · {"View figure" if lang == "en" else "查看论文配图"}"><img src="{prefix}{esc(p["image"])}" alt="{esc(p["key"])} {"overview figure" if lang == "en" else "概览图"}" width="{p['image_width']}" height="{p['image_height']}" loading="lazy"></a>'
   venue = local(p['venue']) if p['published'] else f'{p["year"]} · {t["manuscript"]}'
   return f'<article class="paper">{thumbnail}<div class="paper-details"><div class="paper-top"><span class="paper-key">{esc(p["key"])}</span><span class="venue">{venue}</span></div><h3>{title}</h3><p class="authors">{authors}</p>{'<div class="paper-links">' + links + '</div>' if links else ''}</div></article>'
  sections = [
   section('about',1,''.join(f'<p>{esc(p)}</p>' for p in data['about'][lang])),
   section('news',2,'<ul class="news">'+''.join(f'<li><time>{esc(n["date"])}</time><p>{esc(n[lang])}</p></li>' for n in data['news'])+'</ul>'),
-  section('education',3,entries(data['education'])+f'<h3 class="subheading">{t["research"]}</h3>'+entries(data['research'])),
-  section('industry',4,entries(data['industry'])),
-  section('publications',5,f'<p class="legend">{t["legend"]}</p>'+''.join(paper(p) for p in data['publications'] if p['published'])+f'<h3 class="subheading">{t["manuscripts"]}</h3>'+''.join(paper(p) for p in data['publications'] if not p['published'])),
-  section('interests',6,'<div class="interest-grid">'+''.join(f'<article><h3>{local(i["title"])}</h3><p>{local(i["text"])}</p></article>' for i in data['interests'])+'</div>')
+  section('interests',3,'<div class="interest-grid">'+''.join(f'<article><h3>{local(i["title"])}</h3><p>{local(i["text"])}</p></article>' for i in data['interests'])+'</div>'),
+  section('education',4,entries(data['education'])+f'<h3 class="subheading">{t["research"]}</h3>'+entries(data['research'])),
+  section('industry',5,entries(data['industry'])),
+  section('publications',6,f'<p class="legend">{t["legend"]}</p>'+''.join(paper(p) for p in data['publications'] if p['published'])+f'<h3 class="subheading">{t["manuscripts"]}</h3>'+''.join(paper(p) for p in data['publications'] if not p['published'])),
  ]
- nav = ''.join(f'<a href="#{key}">{t[key]}</a>' for key in ('about','news','education','industry','publications','interests'))
+ nav = ''.join(f'<a href="#{key}">{t[key]}</a>' for key in ('about','news','interests','education','industry','publications'))
  langs = '<span aria-current="page" lang="en">EN</span><a data-language href="./zh/" lang="zh-CN" hreflang="zh-CN">中文</a>' if lang == 'en' else '<a data-language href="../" lang="en" hreflang="en">EN</a><span aria-current="page" lang="zh-CN">中文</span>'
  profile = data['profile'][lang]
  description = 'Mingyuan Jia, Tsinghua University. Research in world models, embodied intelligence, robotics, and representation learning.' if lang == 'en' else 'Mingyuan Jia，清华大学自动化系本科生。研究方向：世界模型、具身智能、机器人与表征学习。'
