@@ -20,7 +20,7 @@
   },
   "about": {
     "en": [
-      "I am an undergraduate in the Department of Automation at Tsinghua University. My research interests lie in world models for embodied systems, robotics, and representation learning.",
+      "I am Mingyuan Jia (贾明远), an undergraduate in the Department of Automation at Tsinghua University. My research interests lie in world models for embodied systems, robotics, and representation learning.",
       "My research connects visual world state modeling with robot adaptation. I explore representation learning to link world states with actions while preserving spatiotemporal consistency, alongside adaptation through in-context learning, test-time training, continual and lifelong learning, and RSI. My goal is to build intelligent robotic systems that learn from experience and adapt to changing tasks and environments.",
       "I have worked with Prof. Yong Li at FIBLAB and Prof. Yueqi Duan at the Tsinghua Spatial Intelligence & Vision Group. I am currently an R&D intern at Shanghai Coco Matrix Intelligent Technology, working on robotic model pre-training."
     ],
@@ -369,5 +369,6 @@
       },
       "images": []
     }
-  ]
+  ],
+  "preferred_name": "Benjamin"
 }

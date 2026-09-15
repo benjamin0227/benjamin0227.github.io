@@ -104,7 +104,7 @@ for lang in ('en', 'zh'):
 <div class="layout">
 <aside class="profile" aria-label="{'Profile and navigation' if lang == 'en' else '个人信息与导航'}">
 <img class="portrait" src="{prefix}assets/portrait.jpg" width="120" height="120" alt="Mingyuan Jia">
-<h1>{local(data['name'])}</h1>
+<h1>{local(data['name'])}<span class="preferred-name">({esc(data['preferred_name'])})</span></h1>
 <p class="bio">{esc(profile[0])}<br><strong>{esc(profile[1])}</strong></p>
 <p class="focus">{esc(profile[2])}</p>
 <div class="contact"><a href="mailto:{esc(data['email'])}">{icon('email')}{t['email']}</a><a href="{esc(data['scholar'])}" target="_blank" rel="noopener noreferrer" title="Google Scholar ↗">{icon('scholar')}Google Scholar</a><a href="{prefix}assets/files/MingyuanJia-CV.pdf" target="_blank" rel="noopener noreferrer" title="CV · PDF ↗">{icon('cv')}CV <span class="file-type">PDF</span></a></div>
