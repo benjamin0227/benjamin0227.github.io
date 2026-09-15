@@ -18,7 +18,7 @@ python3 -m http.server 8000
 2. 运行 `python3 scripts/build.py`，同时更新两种语言的页面。
 3. 将 `content.json` 和生成的 HTML 一起提交到 GitHub。
 
-照片位于 `assets/portrait.jpg`。原图只有 150 × 200 像素，建议日后替换更高清的同纵横比照片。
+头像位于 `assets/portrait.jpg`，桌面和手机均按正方形显示，替换时建议使用方形图片。
 样式位于 `assets/style.css`；强调色由 `--blue` 控制。
 论文 `published: true` 显示在已发表列表，其他条目显示在研究稿件列表。公开链接维护在 `links`。研究稿件不表示已录用或已公开预印本。
 

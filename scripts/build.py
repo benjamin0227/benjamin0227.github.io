@@ -52,7 +52,7 @@ for lang in ('en', 'zh'):
 <a class="skip" href="#content">{t['skip']}</a>
 <div class="layout">
 <aside class="profile" aria-label="{'Profile and navigation' if lang == 'en' else '个人信息与导航'}">
-<img class="portrait" src="{prefix}assets/portrait.jpg" width="120" height="160" alt="Mingyuan Jia">
+<img class="portrait" src="{prefix}assets/portrait.jpg" width="120" height="120" alt="Mingyuan Jia">
 <h1>{local(data['name'])}</h1>
 <p class="bio">{esc(profile[0])}<br><strong>{esc(profile[1])}</strong></p>
 <p class="focus">{esc(profile[2])}</p>
