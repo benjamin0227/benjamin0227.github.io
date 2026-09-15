@@ -34,5 +34,5 @@
 .profile .portrait{margin-bottom:17px}.profile h1{margin-bottom:10px}.profile .preferred-name{line-height:1.35;margin-top:4px}.profile .bio{line-height:1.55}.profile .focus{line-height:1.5;margin:12px 0}.profile .contact{gap:4px}.profile .contact>a{min-height:26px}.profile .nav{margin-top:20px}@media(max-width:650px){.profile .portrait{margin-bottom:0}.profile .focus{margin:8px 0}.profile .nav{margin-top:16px}}
 
 /* Compact links with independent desktop sidebar scrolling. */
+.hobby-notice{margin:18px 0 0;font-size:12px;line-height:1.6;color:var(--muted)}.hobby-notice a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .profile .contact{gap:1px}.profile .contact>a{min-height:23px;line-height:1.4}.profile .nav{gap:4px;margin-top:15px;padding-top:14px;line-height:1.5}
-

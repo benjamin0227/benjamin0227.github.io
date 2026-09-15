@@ -335,7 +335,18 @@
         "en": "Anime",
         "zh": "动漫"
       },
-      "images": []
+      "images": [
+        {"src": "assets/hobbies/bocchi-the-rock.png", "alt": {"en": "Bocchi the Rock! band members", "zh": "孤独摇滚乐队成员"}, "caption": {"en": "Bocchi the Rock!", "zh": "孤独摇滚"}},
+        {"src": "assets/hobbies/sword-art-online.png", "alt": {"en": "Sword Art Online artwork", "zh": "刀剑神域插画"}, "caption": {"en": "Sword Art Online", "zh": "刀剑神域"}}
+      ]
+    },
+    {
+      "id": "film-tv",
+      "title": {"en": "Films & TV", "zh": "影视剧"},
+      "images": [
+        {"src": "assets/hobbies/person-of-interest.png", "alt": {"en": "Person of Interest cast poster", "zh": "疑犯追踪角色海报"}, "caption": {"en": "Person of Interest", "zh": "疑犯追踪（POI）"}},
+        {"src": "assets/hobbies/interstellar.png", "alt": {"en": "Interstellar astronaut on an icy planet", "zh": "星际穿越冰雪星球上的宇航员"}, "caption": {"en": "Interstellar", "zh": "星际穿越"}}
+      ]
     },
     {
       "id": "basketball",
@@ -367,7 +378,11 @@
         "en": "Esports",
         "zh": "电竞"
       },
-      "images": []
+      "images": [
+        {"src": "assets/hobbies/valorant.png", "alt": {"en": "VALORANT Viper artwork", "zh": "无畏契约角色插画"}, "caption": {"en": "VALORANT", "zh": "无畏契约"}},
+        {"src": "assets/hobbies/league-of-legends.png", "alt": {"en": "League of Legends character artwork", "zh": "英雄联盟角色插画"}, "caption": {"en": "League of Legends", "zh": "英雄联盟"}},
+        {"src": "assets/hobbies/wuthering-waves.png", "alt": {"en": "Wuthering Waves artwork", "zh": "鸣潮角色插画"}, "caption": {"en": "Wuthering Waves", "zh": "鸣潮"}}
+      ]
     }
   ],
   "preferred_name": "Benjamin",

@@ -78,7 +78,10 @@ for lang in ('en', 'zh'):
     slides.append(f'<figure class="hobby-slide"{ " hidden" if j else ""}><img src="{prefix}{esc(photo["src"], quote=True)}" alt="{local(photo["alt"])}" loading="lazy"><figcaption>{local(photo.get("caption", ""))}</figcaption></figure>')
    empty = '<div class="hobby-empty"><span aria-hidden="true">＋</span><p>Photos coming soon.</p></div>' if not slides else ''
    panels.append(f'<div class="hobby-panel" role="tabpanel" id="hobby-panel-{key}" aria-labelledby="hobby-tab-{key}" tabindex="0"{ " hidden" if i else ""}><h3>{local(hobby["title"])}</h3><div class="hobby-stage">{empty}{"".join(slides)}</div><div class="hobby-pagination"><button type="button" data-step="-1" aria-label="Previous photo" disabled>←</button><span class="hobby-count" role="status" aria-live="polite">{ "1 / " + str(len(slides)) if slides else "0 / 0"}</span><button type="button" data-step="1" aria-label="Next photo" disabled>→</button></div></div>')
-  return '<div class="hobby-tabs" role="tablist" aria-label="Hobbies">' + ''.join(tabs) + '</div>' + ''.join(panels)
+  notice = ('Images are shared here to illustrate my personal interests. All rights belong to their respective owners. For copyright concerns or removal requests, please ' if lang == 'en' else '图片仅用于展示个人爱好，版权归各自权利人所有。如有版权问题或下架请求，请')
+  contact = 'contact me' if lang == 'en' else '联系我'
+  disclaimer = f'<p class="hobby-notice">{notice}<a href="mailto:{esc(data["email"], quote=True)}">{contact}</a>{"." if lang == "en" else "。"}</p>'
+  return '<div class="hobby-tabs" role="tablist" aria-label="Hobbies">' + ''.join(tabs) + '</div>' + ''.join(panels) + disclaimer
  sections = [
   section('about',1,''.join(about_paragraph(p) for p in data['about'][lang])),
   section('news',2,'<ul class="news">'+''.join(f'<li><time>{esc(n["date"])}</time><p>{esc(n[lang])}</p></li>' for n in data['news'])+'</ul>'),
