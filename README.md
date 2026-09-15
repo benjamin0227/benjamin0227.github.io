@@ -58,3 +58,9 @@ python3 -m http.server 8000
 仓库：https://github.com/benjamin0227/my-github-page
 
 维护分支：`clean-website`。在 Settings → Pages 中启用该分支根目录发布后，网站地址为 https://benjamin0227.github.io/my-github-page/ 。
+
+## 论文资源链接
+
+`content.json` 每篇论文的 `links` 支持 `Project`、`Paper`、`Code`，按此顺序显示。只填写已公开且核实的 URL；空缺入口不显示。论文标题优先链接项目页，其次论文页，无可用链接时保留普通标题。论文外链、Scholar 和 CV 在新标签页打开，站内导航仍在当前页跳转。
+
+链接分层参考 https://wkwan7.github.io/ ，样式独立实现。AirScape 代码入口依据其官方项目页核实：https://github.com/EmbodiedCity/AirScape.code 。

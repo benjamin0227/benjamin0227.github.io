@@ -6,12 +6,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 data = json.loads((ROOT / 'content.json').read_text())
 labels = {
- 'en': {'about':'About', 'news':'News', 'education':'Education & research', 'industry':'Industry experience', 'publications':'Publications & preprints', 'interests':'Interests', 'research':'Research experience', 'published':'Publications', 'manuscripts':'Research manuscripts', 'legend':'* Equal contribution. Project leadership is noted separately.', 'manuscript':'Research manuscript', 'email':'Email', 'skip':'Skip to content', 'updated':'Updated', 'top':'Back to top', 'Paper':'Paper', 'Project':'Project'},
- 'zh': {'about':'关于我', 'news':'最新动态', 'education':'教育与研究经历', 'industry':'业界经历', 'publications':'论文与预印本', 'interests':'研究兴趣', 'research':'研究经历', 'published':'已发表论文', 'manuscripts':'研究稿件', 'legend':'* 表示同等贡献；项目负责人身份单独标注。', 'manuscript':'研究稿件', 'email':'邮箱', 'skip':'跳至正文', 'updated':'更新于', 'top':'返回顶部', 'Paper':'论文', 'Project':'项目主页'}
+ 'en': {'about':'About', 'news':'News', 'education':'Education & research', 'industry':'Industry experience', 'publications':'Publications & preprints', 'interests':'Interests', 'research':'Research experience', 'published':'Publications', 'manuscripts':'Research manuscripts', 'legend':'* Equal contribution. Project leadership is noted separately.', 'manuscript':'Research manuscript', 'email':'Email', 'skip':'Skip to content', 'updated':'Updated', 'top':'Back to top', 'Paper':'Paper', 'Project':'Project', 'Code':'Code'},
+ 'zh': {'about':'关于我', 'news':'最新动态', 'education':'教育与研究经历', 'industry':'业界经历', 'publications':'论文与预印本', 'interests':'研究兴趣', 'research':'研究经历', 'published':'已发表论文', 'manuscripts':'研究稿件', 'legend':'* 表示同等贡献；项目负责人身份单独标注。', 'manuscript':'研究稿件', 'email':'邮箱', 'skip':'跳至正文', 'updated':'更新于', 'top':'返回顶部', 'Paper':'论文', 'Project':'项目主页', 'Code':'代码'}
 }
 
 def icon(kind):
  paths = {
+  'project': '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>',
+  'code': '<path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-14-2 16"/>',
   'email': '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
   'scholar': '<path d="m2 9 10-5 10 5-10 5-10-5Zm4 2v6c4 3 8 3 12 0v-6M22 9v8"/>',
   'cv': '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6Zm0 0v6h6M8 13h8M8 17h6"/>'
@@ -29,9 +31,17 @@ for lang in ('en', 'zh'):
   return ''.join(f'<article class="entry"><div class="date">{local(e["date"])}</div><h3>{local(e["title"])}</h3><p class="subtitle">{local(e["subtitle"])}</p><p>{local(e["text"])}</p></article>' for e in items)
  def paper(p):
   authors = esc(p['authors']).replace('Mingyuan Jia', '<strong>Mingyuan Jia</strong>')
-  links = ''.join(f'<a href="{esc(url, quote=True)}">{t.get(label, esc(label))}</a>' for label,url in p['links'])
+  resources = dict(p['links'])
+  ordered = [(key, resources[key]) for key in ('Project', 'Paper', 'Code') if resources.get(key)]
+  ordered += [(key, url) for key, url in p['links'] if key not in ('Project', 'Paper', 'Code') and url]
+  new_tab = 'opens in a new tab' if lang == 'en' else '在新标签页打开'
+  links = ''.join(f'<a class="resource-link" href="{esc(url, quote=True)}" target="_blank" rel="noopener noreferrer" aria-label="{esc(p["key"])} · {t.get(label, esc(label))} ({new_tab})">{icon({"Project":"project","Paper":"cv","Code":"code"}.get(label,"project"))}<span>{t.get(label, esc(label))}</span><span class="external-mark" aria-hidden="true">↗</span></a>' for label,url in ordered)
+  destination = resources.get('Project') or resources.get('Paper')
+  title = esc(p['title'])
+  if destination:
+   title = f'<a class="paper-title-link" href="{esc(destination, quote=True)}" target="_blank" rel="noopener noreferrer" aria-label="{title} ({new_tab})">{title}</a>'
   venue = local(p['venue']) if p['published'] else f'{p["year"]} · {t["manuscript"]}'
-  return f'<article class="paper"><div class="paper-top"><span class="paper-key">{esc(p["key"])}</span><span class="venue">{venue}</span></div><h3>{esc(p["title"])}</h3><p class="authors">{authors}</p><p class="summary">{local(p["summary"])}</p><div class="paper-links">{links}<span class="role">{local(p["role"])}</span></div></article>'
+  return f'<article class="paper"><div class="paper-top"><span class="paper-key">{esc(p["key"])}</span><span class="venue">{venue}</span></div><h3>{title}</h3><p class="authors">{authors}</p><p class="summary">{local(p["summary"])}</p><p class="role">{local(p["role"])}</p>{'<div class="paper-links">' + links + '</div>' if links else ''}</article>'
  sections = [
   section('about',1,''.join(f'<p>{esc(p)}</p>' for p in data['about'][lang])),
   section('news',2,'<ul class="news">'+''.join(f'<li><time>{esc(n["date"])}</time><p>{esc(n[lang])}</p></li>' for n in data['news'])+'</ul>'),
@@ -64,7 +74,7 @@ for lang in ('en', 'zh'):
 <h1>{local(data['name'])}</h1>
 <p class="bio">{esc(profile[0])}<br><strong>{esc(profile[1])}</strong></p>
 <p class="focus">{esc(profile[2])}</p>
-<div class="contact"><a href="mailto:{esc(data['email'])}">{icon('email')}{t['email']}</a><a href="{esc(data['scholar'])}">{icon('scholar')}Google Scholar</a><a href="{prefix}assets/files/MingyuanJia-CV.pdf">{icon('cv')}CV <span class="file-type">PDF</span></a></div>
+<div class="contact"><a href="mailto:{esc(data['email'])}">{icon('email')}{t['email']}</a><a href="{esc(data['scholar'])}" target="_blank" rel="noopener noreferrer" title="Google Scholar ↗">{icon('scholar')}Google Scholar</a><a href="{prefix}assets/files/MingyuanJia-CV.pdf" target="_blank" rel="noopener noreferrer" title="CV · PDF ↗">{icon('cv')}CV <span class="file-type">PDF</span></a></div>
 <nav class="nav" aria-label="{'Sections' if lang == 'en' else '章节'}">{nav}</nav>
 <nav class="languages" aria-label="{'Language' if lang == 'en' else '语言'}">{langs}</nav>
 </aside>
