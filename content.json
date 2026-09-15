@@ -322,5 +322,55 @@
       ]
     }
   },
-  "publication_view": "selected"
+  "publication_view": "selected",
+  "hobbies": [
+    {
+      "id": "guitar",
+      "title": {
+        "en": "Guitar",
+        "zh": "吉他"
+      },
+      "images": []
+    },
+    {
+      "id": "anime",
+      "title": {
+        "en": "Anime",
+        "zh": "动漫"
+      },
+      "images": []
+    },
+    {
+      "id": "basketball",
+      "title": {
+        "en": "Basketball",
+        "zh": "篮球"
+      },
+      "images": []
+    },
+    {
+      "id": "table-tennis",
+      "title": {
+        "en": "Table tennis",
+        "zh": "乒乓球"
+      },
+      "images": []
+    },
+    {
+      "id": "fitness",
+      "title": {
+        "en": "Fitness",
+        "zh": "健身"
+      },
+      "images": []
+    },
+    {
+      "id": "esports",
+      "title": {
+        "en": "Esports",
+        "zh": "电竞"
+      },
+      "images": []
+    }
+  ]
 }

@@ -56,3 +56,41 @@ if (publicationList && publicationControls) {
   publicationControls.hidden = false;
   setPublicationView(publicationList.dataset.defaultView);
 }
+
+
+const hobbyTabs = [...document.querySelectorAll('.hobby-tabs [role="tab"]')];
+function selectHobby(tab, focus = false) {
+  hobbyTabs.forEach(item => {
+    const selected = item === tab;
+    item.setAttribute('aria-selected', String(selected));
+    item.tabIndex = selected ? 0 : -1;
+    document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+  });
+  if (focus) tab.focus();
+  scheduleNavigationUpdate();
+}
+hobbyTabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => selectHobby(tab));
+  tab.addEventListener('keydown', event => {
+    let next;
+    if (event.key === 'ArrowRight') next = (index + 1) % hobbyTabs.length;
+    if (event.key === 'ArrowLeft') next = (index - 1 + hobbyTabs.length) % hobbyTabs.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = hobbyTabs.length - 1;
+    if (next !== undefined) { event.preventDefault(); selectHobby(hobbyTabs[next], true); }
+  });
+});
+document.querySelectorAll('.hobby-panel').forEach(panel => {
+  const slides = [...panel.querySelectorAll('.hobby-slide')];
+  let index = 0;
+  panel.querySelectorAll('[data-step]').forEach(button => {
+    button.disabled = slides.length < 2;
+    button.addEventListener('click', () => {
+      if (slides.length < 2) return;
+      slides[index].hidden = true;
+      index = (index + Number(button.dataset.step) + slides.length) % slides.length;
+      slides[index].hidden = false;
+      panel.querySelector('.hobby-count').textContent = `${index + 1} / ${slides.length}`;
+    });
+  });
+});

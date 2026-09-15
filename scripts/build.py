@@ -8,8 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 data = json.loads((ROOT / 'content.json').read_text())
 labels = {
- 'en': {'about':'About', 'news':'News', 'education':'Education & research', 'industry':'Industry experience', 'publications':'Publications & preprints', 'interests':'Interests', 'research':'Research experience', 'published':'Publications', 'manuscripts':'Research manuscripts', 'legend':'* Equal contribution. ', 'manuscript':'Research manuscript', 'email':'Email', 'skip':'Skip to content', 'updated':'Updated', 'top':'Back to top', 'Paper':'Paper', 'Project':'Project', 'Code':'Code'},
- 'zh': {'about':'关于我', 'news':'最新动态', 'education':'教育与研究经历', 'industry':'业界经历', 'publications':'论文与预印本', 'interests':'研究兴趣', 'research':'研究经历', 'published':'已发表论文', 'manuscripts':'研究稿件', 'legend':'* 表示同等贡献。', 'manuscript':'研究稿件', 'email':'邮箱', 'skip':'跳至正文', 'updated':'更新于', 'top':'返回顶部', 'Paper':'论文', 'Project':'项目主页', 'Code':'代码'}
+ 'en': {'hobbies':'Hobbies', 'about':'About', 'news':'News', 'education':'Education & research', 'industry':'Industry experience', 'publications':'Publications & preprints', 'interests':'Interests', 'research':'Research experience', 'published':'Publications', 'manuscripts':'Research manuscripts', 'legend':'* Equal contribution. ', 'manuscript':'Research manuscript', 'email':'Email', 'skip':'Skip to content', 'updated':'Updated', 'top':'Back to top', 'Paper':'Paper', 'Project':'Project', 'Code':'Code'},
+ 'zh': {'hobbies':'个人爱好', 'about':'关于我', 'news':'最新动态', 'education':'教育与研究经历', 'industry':'业界经历', 'publications':'论文与预印本', 'interests':'研究兴趣', 'research':'研究经历', 'published':'已发表论文', 'manuscripts':'研究稿件', 'legend':'* 表示同等贡献。', 'manuscript':'研究稿件', 'email':'邮箱', 'skip':'跳至正文', 'updated':'更新于', 'top':'返回顶部', 'Paper':'论文', 'Project':'项目主页', 'Code':'代码'}
 }
 
 def icon(kind):
@@ -64,6 +64,17 @@ for lang in ('en', 'zh'):
   thumbnail = f'<a class="paper-figure" href="{prefix}{esc(p["image"])}" target="_blank" rel="noopener" aria-label="{esc(p["key"])} · {"View figure" if lang == "en" else "查看论文配图"}"><img src="{prefix}{esc(p["image"])}" alt="{esc(p["key"])} {"overview figure" if lang == "en" else "概览图"}" width="{p['image_width']}" height="{p['image_height']}" loading="lazy"></a>'
   venue = local(p['venue']) if p['published'] else f'{p["year"]} · {t["manuscript"]}'
   return f'<article class="paper" data-selected="{str(p.get("selected", False)).lower()}" data-selected-order="{p.get("selected_order", 100)}">{thumbnail}<div class="paper-details"><div class="paper-top"><span class="paper-key">{esc(p["key"])}</span><span class="venue">{venue}</span></div><h3>{title}</h3><p class="authors">{authors}</p>{'<div class="paper-links">' + links + '</div>' if links else ''}</div></article>'
+ def hobbies():
+  tabs, panels = [], []
+  for i, hobby in enumerate(data.get('hobbies', [])):
+   key = esc(hobby['id'], quote=True)
+   tabs.append(f'<button type="button" role="tab" id="hobby-tab-{key}" aria-controls="hobby-panel-{key}" aria-selected="{str(i == 0).lower()}" tabindex="{0 if i == 0 else -1}">{local(hobby["title"])}</button>')
+   slides = []
+   for j, photo in enumerate(hobby.get('images', [])):
+    slides.append(f'<figure class="hobby-slide"{ " hidden" if j else ""}><img src="{prefix}{esc(photo["src"], quote=True)}" alt="{local(photo["alt"])}" loading="lazy"><figcaption>{local(photo.get("caption", ""))}</figcaption></figure>')
+   empty = '<div class="hobby-empty"><span aria-hidden="true">＋</span><p>Photos coming soon.</p></div>' if not slides else ''
+   panels.append(f'<div class="hobby-panel" role="tabpanel" id="hobby-panel-{key}" aria-labelledby="hobby-tab-{key}" tabindex="0"{ " hidden" if i else ""}><h3>{local(hobby["title"])}</h3><div class="hobby-stage">{empty}{"".join(slides)}</div><div class="hobby-pagination"><button type="button" data-step="-1" aria-label="Previous photo" disabled>←</button><span class="hobby-count" role="status" aria-live="polite">{ "1 / " + str(len(slides)) if slides else "0 / 0"}</span><button type="button" data-step="1" aria-label="Next photo" disabled>→</button></div></div>')
+  return '<div class="hobby-tabs" role="tablist" aria-label="Hobbies">' + ''.join(tabs) + '</div>' + ''.join(panels)
  sections = [
   section('about',1,''.join(about_paragraph(p) for p in data['about'][lang])),
   section('news',2,'<ul class="news">'+''.join(f'<li><time>{esc(n["date"])}</time><p>{esc(n[lang])}</p></li>' for n in data['news'])+'</ul>'),
@@ -72,7 +83,8 @@ for lang in ('en', 'zh'):
   section('industry',5,entries(data['industry'])),
   section('publications',6,f'<div class="publication-controls" role="group" aria-label="Publication view" hidden><button type="button" data-publication-view="date" aria-pressed="false">By date</button><button type="button" data-publication-view="selected" aria-pressed="false">Selected</button></div><p class="legend">{t["legend"]}</p><div class="publication-list" data-default-view="{esc(data.get("publication_view", "selected"))}">'+''.join(paper(p) for p in sorted(data['publications'], key=lambda p: p.get('date', str(p['year'])), reverse=True))+'</div><p class="publication-empty" hidden>No selected publications yet.</p>'),
  ]
- nav = ''.join(f'<a href="#{key}">{t[key]}</a>' for key in ('about','news','interests','education','industry','publications'))
+ sections.append(section('hobbies',7,hobbies()))
+ nav = ''.join(f'<a href="#{key}">{t[key]}</a>' for key in ('about','news','interests','education','industry','publications','hobbies'))
  profile = data['profile'][lang]
  description = 'Mingyuan Jia, Tsinghua University. Research in world models, embodied intelligence, robotics, and representation learning.' if lang == 'en' else 'Mingyuan Jia，清华大学自动化系本科生。研究方向：世界模型、具身智能、机器人与表征学习。'
  page = f'''<!doctype html>

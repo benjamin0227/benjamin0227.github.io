@@ -80,3 +80,14 @@ python3 -m http.server 8000
 - `year`：按年份降序排列；需要精确顺序时添加 `date`（YYYY-MM-DD）。相同日期保持数据中的先后顺序。
 
 修改后运行 `python3 scripts/build.py`。关闭 JavaScript 时显示全部论文。CSS 和 JS 链接自动附带内容版本号，以避免继续使用旧布局缓存。
+
+## Hobbies 图组
+
+在 `content.json` 的 `hobbies` 中增删、改名或调整爱好顺序。每项 `id` 必须唯一（使用英文字母、数字、短横线）。`images` 默认留空，网站显示 Photos coming soon；有一张图时箭头禁用，两张及以上可循环左右切换。每个爱好独立记住当前图片。
+
+把图片放到 `assets/hobbies/`，再按下例配置（这里只是格式示例，文件名应换成真实图片）：
+```json
+{"src":"assets/hobbies/guitar-01.jpg","alt":{"en":"Playing guitar","zh":"弹吉他"},"caption":{"en":"","zh":""}}
+```
+
+`alt` 为必填图片描述，`caption` 可省略。运行 `python3 scripts/build.py` 后提交数据、图片及生成页面即可。
