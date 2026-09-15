@@ -11,7 +11,7 @@
 
 .contact .contact-icon{width:1em;height:1em;flex:0 0 1em}.contact a{gap:8px;line-height:1.5}
 
-@media(min-width:651px){.profile{max-height:calc(100dvh - 60px);overflow-y:auto;padding-bottom:5px}}
+@media(min-width:651px){.profile{max-height:none;overflow:visible;padding-bottom:5px}}
 
 .about-institution{font-weight:600}.about-person{color:var(--blue);font-weight:600}.about-interest{color:inherit;background:linear-gradient(transparent 55%,#e7effb 55%);padding:0 .06em;box-decoration-break:clone;-webkit-box-decoration-break:clone}.about-idea{font-style:italic}.zh .about-idea{font-style:normal;font-weight:500}
 
@@ -32,3 +32,7 @@
 
 /* Slightly tighter rhythm in the upper profile. */
 .profile .portrait{margin-bottom:17px}.profile h1{margin-bottom:10px}.profile .preferred-name{line-height:1.35;margin-top:4px}.profile .bio{line-height:1.55}.profile .focus{line-height:1.5;margin:12px 0}.profile .contact{gap:4px}.profile .contact>a{min-height:26px}.profile .nav{margin-top:20px}@media(max-width:650px){.profile .portrait{margin-bottom:0}.profile .focus{margin:8px 0}.profile .nav{margin-top:16px}}
+
+/* Compact links; short screens use page scrolling instead of an inner sidebar. */
+.profile .contact{gap:1px}.profile .contact>a{min-height:23px;line-height:1.4}.profile .nav{gap:4px;margin-top:15px;padding-top:14px;line-height:1.5}
+@media(min-width:651px) and (max-height:800px){.profile{position:static}}
