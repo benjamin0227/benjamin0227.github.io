@@ -69,7 +69,9 @@
       "text": {
         "en": "Talent Program for Intelligent Robotics. Top 20%.",
         "zh": "智能机器人英才班。排名前 20%。"
-      }
+      },
+      "logo": "assets/organizations/tsinghua.png",
+      "url": "https://www.tsinghua.edu.cn/"
     }
   ],
   "research": [
@@ -89,7 +91,9 @@
       "text": {
         "en": "Compositional 3D scene reconstruction and evaluation.",
         "zh": "组合式三维场景重建与评测。"
-      }
+      },
+      "logo": "assets/organizations/thu-si.png",
+      "url": "https://github.com/THU-SI"
     },
     {
       "date": {
@@ -107,7 +111,9 @@
       "text": {
         "en": "Controllable world models and spatially consistent video generation.",
         "zh": "可控世界模型与空间一致性视频生成。"
-      }
+      },
+      "logo": "assets/organizations/fiblab.svg",
+      "url": "https://fi.ee.tsinghua.edu.cn/"
     }
   ],
   "industry": [
@@ -127,7 +133,9 @@
       "text": {
         "en": "Core member of the robotic model pre-training team.",
         "zh": "机器人模型预训练团队核心成员之一。"
-      }
+      },
+      "logo": "assets/organizations/coco-matrix.png",
+      "url": "https://www.ccmtrx.com/"
     },
     {
       "date": {
@@ -145,7 +153,9 @@
       "text": {
         "en": "Key contributor to WorldScape, focusing on 3D spatial consistency training and memory-oriented KV cache optimization.",
         "zh": "WorldScape 的主要贡献者，负责三维空间一致性训练与面向记忆的 KV 缓存优化。"
-      }
+      },
+      "logo": "assets/organizations/manifold.png",
+      "url": "https://manifoldai.cn/"
     }
   ],
   "publications": [

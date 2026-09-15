@@ -14,3 +14,7 @@
 @media(min-width:651px){.profile{max-height:calc(100dvh - 60px);overflow-y:auto;padding-bottom:5px}}
 
 .about-institution{font-weight:600}.about-person{color:var(--blue);font-weight:600}.about-interest{color:inherit;background:linear-gradient(transparent 55%,#e7effb 55%);padding:0 .06em;box-decoration-break:clone;-webkit-box-decoration-break:clone}.about-idea{font-style:italic}.zh .about-idea{font-style:normal;font-weight:500}
+
+.entry{display:grid;grid-template-columns:76px minmax(0,1fr);gap:18px;padding-left:0;border-left:0;align-items:start}.entry-details{min-width:0}.organization-logo{display:flex;align-items:center;justify-content:center;width:76px;height:68px;margin-top:4px;padding:7px;border:1px solid var(--line);border-radius:6px;background:#fff}.organization-logo img{display:block;width:100%;height:100%;object-fit:contain}.organization-logo:hover{border-color:var(--blue)}.organization-logo--tsinghua{background:#683488;border-color:#683488;padding:9px}.organization-logo--tsinghua img{width:48px;height:48px}@media(max-width:650px){.entry{grid-template-columns:54px minmax(0,1fr);gap:13px}.organization-logo{width:54px;height:54px;padding:5px}.organization-logo--tsinghua img{width:40px;height:40px}}
+
+.organization-logo--tsinghua img{object-fit:cover;object-position:left}

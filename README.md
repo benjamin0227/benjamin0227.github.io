@@ -66,3 +66,7 @@ python3 -m http.server 8000
 链接分层参考 https://wkwan7.github.io/ ，样式独立实现。AirScape 代码入口依据其官方项目页核实：https://github.com/EmbodiedCity/AirScape.code 。
 
 论文展示图位于 `assets/papers/`，从用户提供 PDF 中提取：AirScape 第 2 页、WorldScape 第 2 页、WorldREPA 第 3 页、MoE 第 2 页、ReplicateAnyScene 第 1 页。`content.json` 的 `image` 字段指定图片。论文列表不再展示个人贡献和作者身份说明；点击缩略图在新标签页查看大图。
+
+## 经历机构标识
+
+教育、研究和业界经历的标识存放在 `assets/organizations/`，来自各机构官网或官方 GitHub 组织头像，原始资源 URL 记录于 `sources.json`。清华校徽使用官网白色图形，置于紫色背景上。每条经历的 `logo` 与 `url` 控制图标及官网链接，点击图标在新标签页打开机构主页。

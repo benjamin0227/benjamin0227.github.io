@@ -43,7 +43,12 @@ for lang in ('en', 'zh'):
  def section(key, number, body):
   return f'<section class="section {key}" id="{key}" aria-labelledby="heading-{key}"><div class="section-head"><span class="num" aria-hidden="true">{number:02d}</span><h2 id="heading-{key}">{t[key]}</h2></div>{body}</section>'
  def entries(items):
-  return ''.join(f'<article class="entry"><div class="date">{local(e["date"])}</div><h3>{local(e["title"])}</h3><p class="subtitle">{local(e["subtitle"])}</p><p>{local(e["text"])}</p></article>' for e in items)
+  result = []
+  for e in items:
+   variant = ' organization-logo--tsinghua' if e['logo'].endswith('/tsinghua.png') else ''
+   logo = f'<a class="organization-logo{variant}" href="{esc(e["url"], quote=True)}" target="_blank" rel="noopener noreferrer" aria-label="{local(e["title"])}"><img src="{prefix}{esc(e["logo"])}" alt="" width="64" height="64"></a>'
+   result.append(f'<article class="entry">{logo}<div class="entry-details"><div class="date">{local(e["date"])}</div><h3>{local(e["title"])}</h3><p class="subtitle">{local(e["subtitle"])}</p><p>{local(e["text"])}</p></div></article>')
+  return ''.join(result)
  def paper(p):
   authors = esc(p['authors']).replace('Mingyuan Jia', '<strong>Mingyuan Jia</strong>')
   resources = dict(p['links'])
