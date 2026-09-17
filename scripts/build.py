@@ -105,7 +105,9 @@ for lang in ('en', 'zh'):
 <link rel="canonical" href="{site_url}{'zh/' if lang == 'zh' else ''}">
 <link rel="alternate" hreflang="en" href="{site_url}"><link rel="alternate" hreflang="zh-CN" href="{site_url}zh/">
 <link rel="alternate" hreflang="x-default" href="{site_url}">
-<link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{prefix}assets/favicon.png" type="image/png" sizes="192x192">
+<link rel="icon" href="{prefix}favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="{prefix}assets/apple-touch-icon.png" sizes="180x180">
 <link rel="stylesheet" href="{prefix}assets/style.css?v={hashlib.sha256((ROOT / "assets/style.css").read_bytes()).hexdigest()[:10]}"><script src="{prefix}assets/site.js?v={hashlib.sha256((ROOT / "assets/site.js").read_bytes()).hexdigest()[:10]}" defer></script>
 </head>
 <body class="{lang}" id="top">
