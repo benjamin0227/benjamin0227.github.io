@@ -99,7 +99,7 @@ for lang in ('en', 'zh'):
 <html lang="{'en' if lang == 'en' else 'zh-CN'}">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{local(data['name'])} · {'Tsinghua University' if lang == 'en' else '清华大学'}</title>
+<title>Mingyuan Jia · 贾明远</title>
 <meta name="description" content="{esc(description, quote=True)}">
 <meta name="theme-color" content="#245caf">
 <link rel="canonical" href="{site_url}{'zh/' if lang == 'zh' else ''}">
