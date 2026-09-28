@@ -32,6 +32,11 @@
   },
   "news": [
     {
+      "date": "2026.09",
+      "en": "Worldscape-MoE has been accepted to NeurIPS 2026.",
+      "zh": "Worldscape-MoE 被 NeurIPS 2026 接收。"
+    },
+    {
       "date": "2026.07",
       "en": "Joined Shanghai Coco Matrix Intelligent Technology as an R&D intern, working on robotic model pre-training.",
       "zh": "加入 Shanghai Coco Matrix Intelligent Technology，担任研发实习生，参与机器人模型预训练。"
@@ -218,7 +223,11 @@
     {
       "key": "Worldscape-MoE",
       "year": "2026",
-      "published": false,
+      "published": true,
+      "venue": {
+        "en": "NeurIPS 2026 · Accepted",
+        "zh": "NeurIPS 2026 · 已接收"
+      },
       "title": "Worldscape-MoE: A Unified Mixture-of-Experts World Model for Scalable Heterogeneous Action Control",
       "authors": "Jianjie Fang†*, Yongyan Xu*, Ziyou Wang*, Yuchao Huang, Zhaolu Wang, Rongze Tang, Mingyuan Jia, Baining Zhao, Weichen Zhang, Xin Zhang, Haisheng Su, Yu Shang, Chen Gao, Wei Wu, Xinlei Chen, Yong Li",
       "links": [],
