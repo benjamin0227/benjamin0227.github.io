@@ -225,8 +225,8 @@
       "year": "2026",
       "published": true,
       "venue": {
-        "en": "NeurIPS 2026 · Accepted",
-        "zh": "NeurIPS 2026 · 已接收"
+        "en": "NeurIPS 2026",
+        "zh": "NeurIPS 2026"
       },
       "title": "Worldscape-MoE: A Unified Mixture-of-Experts World Model for Scalable Heterogeneous Action Control",
       "authors": "Jianjie Fang†*, Yongyan Xu*, Ziyou Wang*, Yuchao Huang, Zhaolu Wang, Rongze Tang, Mingyuan Jia, Baining Zhao, Weichen Zhang, Xin Zhang, Haisheng Su, Yu Shang, Chen Gao, Wei Wu, Xinlei Chen, Yong Li",
