@@ -41,7 +41,11 @@ for lang in ('en', 'zh'):
    parts.append(esc(text[position:match.start()]))
    kind = phrases[match.group()]
    tag = {'institution':'strong', 'person':'strong', 'interest':'mark', 'idea':'em'}[kind]
-   parts.append(f'<{tag} class="about-{kind}">{esc(match.group())}</{tag}>')
+   url = data.get('advisor_links', {}).get(match.group()) if kind == 'person' else None
+   if url:
+    parts.append(f'<a class="about-person" href="{esc(url, quote=True)}" target="_blank" rel="noopener noreferrer">{esc(match.group())}</a>')
+   else:
+    parts.append(f'<{tag} class="about-{kind}">{esc(match.group())}</{tag}>')
    position = match.end()
   parts.append(esc(text[position:]))
   return '<p>' + ''.join(parts) + '</p>'

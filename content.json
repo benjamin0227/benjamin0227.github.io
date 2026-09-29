@@ -21,13 +21,13 @@
   "about": {
     "en": [
       "I am Mingyuan Jia (贾明远), an undergraduate in the Department of Automation at Tsinghua University. My research interests lie in world models for embodied systems, robotics, and representation learning.",
-      "I am an incoming PhD student in the joint doctoral program between Shanghai Qi Zhi Institute and Shanghai Jiao Tong University, under the supervision of Prof. Mengdi Xu at Tsinghua University's Institute for Interdisciplinary Information Sciences (IIIS).",
+      "I will join the joint PhD program between Shanghai Jiao Tong University and Shanghai Qi Zhi Institute, advised by Prof. Mengdi Xu.",
       "My research connects visual world state modeling with robot adaptation. I explore representation learning to link world states with actions while preserving spatiotemporal consistency, alongside adaptation through in-context learning, test-time training, continual and lifelong learning, and RSI. My goal is to build intelligent robotic systems that learn from experience and adapt to changing tasks and environments.",
       "I have worked with Prof. Yong Li at FIBLAB and Prof. Yueqi Duan at the Tsinghua Spatial Intelligence & Vision Group. I am currently an R&D intern at Shanghai Coco Matrix Intelligent Technology, working on robotic model pre-training."
     ],
     "zh": [
       "我是清华大学自动化系本科生。我的研究兴趣包括具身系统中的世界模型、机器人与表征学习。",
-      "我即将入读上海期智研究院与上海交通大学联合培养博士项目，导师为清华大学交叉信息研究院的徐梦迪教授。",
+      "我即将入读上海交通大学与上海期智研究院联合培养博士项目，导师为徐梦迪教授。",
       "我的研究连接视觉世界状态建模与机器人的适应能力：通过表征学习建立世界状态与动作的联系，并保持时空一致性；同时探索上下文学习、测试时训练、持续与终身学习以及 RSI 等适应机制，最终构建能从经验中学习、适应任务与环境变化的智能机器人系统。",
       "我曾在 FIBLAB 跟随李勇教授开展研究，也曾在清华大学空间智能与视觉研究组跟随段岳奇教授开展研究。目前在 Shanghai Coco Matrix Intelligent Technology 担任研发实习生，参与机器人模型预训练。"
     ]
@@ -285,6 +285,14 @@
       }
     }
   ],
+  "advisor_links": {
+    "Prof. Mengdi Xu": "https://www.mengdixu.me/",
+    "徐梦迪教授": "https://www.mengdixu.me/",
+    "Prof. Yong Li": "https://fi.ee.tsinghua.edu.cn/~liyong/",
+    "李勇教授": "https://fi.ee.tsinghua.edu.cn/~liyong/",
+    "Prof. Yueqi Duan": "https://duanyueqi.github.io/",
+    "段岳奇教授": "https://duanyueqi.github.io/"
+  },
   "about_emphasis": {
     "en": {
       "institution": [
