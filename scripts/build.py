@@ -31,6 +31,19 @@ for lang in ('en', 'zh'):
  prefix = './' if lang == 'en' else '../'
  def local(value):
   return esc(value[lang] if isinstance(value, dict) else value)
+ def linked_advisors(value):
+  text = value[lang] if isinstance(value, dict) else value
+  links = data.get('advisor_links', {})
+  if not links:
+   return esc(text)
+  pattern = re.compile('|'.join(re.escape(name) for name in sorted(links, key=len, reverse=True)))
+  parts, position = [], 0
+  for match in pattern.finditer(text):
+   parts.append(esc(text[position:match.start()]))
+   parts.append(f'<a href="{esc(links[match.group()], quote=True)}" target="_blank" rel="noopener noreferrer">{esc(match.group())}</a>')
+   position = match.end()
+  parts.append(esc(text[position:]))
+  return ''.join(parts)
  def about_paragraph(text):
   phrases = {phrase: kind for kind, values in data.get('about_emphasis', {}).get(lang, {}).items() for phrase in values}
   if not phrases:
@@ -56,7 +69,7 @@ for lang in ('en', 'zh'):
   for e in items:
    variant = ' organization-logo--tsinghua' if e['logo'].endswith('/tsinghua.png') else ''
    logo = f'<a class="organization-logo{variant}" href="{esc(e["url"], quote=True)}" target="_blank" rel="noopener noreferrer" aria-label="{local(e["title"])}"><img src="{prefix}{esc(e["logo"])}" alt="{local(e["title"])}{" logo" if lang == "en" else "标志"}" width="64" height="64"></a>'
-   result.append(f'<article class="entry">{logo}<div class="entry-details"><div class="date">{local(e["date"])}</div><h3>{local(e["title"])}</h3><p class="subtitle">{local(e["subtitle"])}</p><p>{local(e["text"])}</p></div></article>')
+   result.append(f'<article class="entry">{logo}<div class="entry-details"><div class="date">{local(e["date"])}</div><h3>{local(e["title"])}</h3><p class="subtitle">{linked_advisors(e["subtitle"])}</p><p>{local(e["text"])}</p></div></article>')
   return ''.join(result)
  def paper(p):
   authors = esc(p['authors']).replace('Mingyuan Jia', '<strong>Mingyuan Jia</strong>')

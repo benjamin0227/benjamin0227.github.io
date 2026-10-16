@@ -5,7 +5,7 @@
   },
   "email": "jmy23@mails.tsinghua.edu.cn",
   "scholar": "https://scholar.google.com/citations?user=em5g4N8AAAAJ",
-  "updated": "2026-09-15",
+  "updated": "2026-10-16",
   "profile": {
     "en": [
       "Undergraduate · Automation",
@@ -23,13 +23,13 @@
       "I am Mingyuan Jia (贾明远), an undergraduate in the Department of Automation at Tsinghua University. My research interests lie in world models for embodied systems, robotics, and representation learning.",
       "I will join the joint PhD program between Shanghai Jiao Tong University and Shanghai Qi Zhi Institute, advised by Prof. Mengdi Xu.",
       "My research connects visual world state modeling with robot adaptation. I explore representation learning to link world states with actions while preserving spatiotemporal consistency, alongside adaptation through in-context learning, test-time training, continual and lifelong learning, and RSI. My goal is to build intelligent robotic systems that learn from experience and adapt to changing tasks and environments.",
-      "I have worked with Prof. Yong Li at FIBLAB and Prof. Yueqi Duan at the Tsinghua Spatial Intelligence & Vision Group. I am currently an R&D intern at Shanghai Coco Matrix Intelligent Technology, working on robotic model pre-training."
+      "I have worked with Prof. Yong Li at FIBLAB and Prof. Yueqi Duan at the Tsinghua Spatial Intelligence & Vision Group. I also feel fortunate to learn from Prof. Gao Huang at LEAP Lab. I am currently an R&D intern at Shanghai Coco Matrix Intelligent Technology, working on robotic model pre-training."
     ],
     "zh": [
       "我是清华大学自动化系本科生。我的研究兴趣包括具身系统中的世界模型、机器人与表征学习。",
       "我即将入读上海交通大学与上海期智研究院联合培养博士项目，导师为徐梦迪教授。",
       "我的研究连接视觉世界状态建模与机器人的适应能力：通过表征学习建立世界状态与动作的联系，并保持时空一致性；同时探索上下文学习、测试时训练、持续与终身学习以及 RSI 等适应机制，最终构建能从经验中学习、适应任务与环境变化的智能机器人系统。",
-      "我曾在 FIBLAB 跟随李勇教授开展研究，也曾在清华大学空间智能与视觉研究组跟随段岳奇教授开展研究。目前在 Shanghai Coco Matrix Intelligent Technology 担任研发实习生，参与机器人模型预训练。"
+      "我曾在 FIBLAB 跟随李勇教授开展研究，也曾在清华大学空间智能与视觉研究组跟随段岳奇教授开展研究。我也很幸运能在 LEAP Lab 跟随黄高教授学习。目前在 Shanghai Coco Matrix Intelligent Technology 担任研发实习生，参与机器人模型预训练。"
     ]
   },
   "news": [
@@ -82,6 +82,26 @@
     }
   ],
   "research": [
+    {
+      "date": {
+        "en": "Oct 2026 — Present",
+        "zh": "2026.10 — 至今"
+      },
+      "title": {
+        "en": "LEAP Lab",
+        "zh": "LEAP Lab"
+      },
+      "subtitle": {
+        "en": "Tsinghua University · Advisor: Prof. Gao Huang",
+        "zh": "清华大学 · 导师：黄高教授"
+      },
+      "text": {
+        "en": "Learning and conducting research in the Learning And Perception (LEAP) Lab.",
+        "zh": "在 Learning And Perception（LEAP）Lab 学习并开展研究。"
+      },
+      "logo": "assets/organizations/leaplab.png",
+      "url": "https://www.leaplab.ai/"
+    },
     {
       "date": {
         "en": "Feb — Aug 2026",
@@ -286,6 +306,8 @@
     }
   ],
   "advisor_links": {
+    "Prof. Gao Huang": "https://gaohuang-net.github.io/",
+    "黄高教授": "https://gaohuang-net.github.io/",
     "Prof. Mengdi Xu": "https://www.mengdixu.me/",
     "徐梦迪教授": "https://www.mengdixu.me/",
     "Prof. Yong Li": "https://fi.ee.tsinghua.edu.cn/~liyong/",
@@ -301,10 +323,12 @@
         "Shanghai Jiao Tong University",
         "Institute for Interdisciplinary Information Sciences (IIIS)",
         "FIBLAB",
+        "LEAP Lab",
         "Tsinghua Spatial Intelligence & Vision Group",
         "Shanghai Coco Matrix Intelligent Technology"
       ],
       "person": [
+        "Prof. Gao Huang",
         "Prof. Mengdi Xu",
         "Prof. Yong Li",
         "Prof. Yueqi Duan"
@@ -326,10 +350,12 @@
         "上海交通大学",
         "清华大学交叉信息研究院",
         "FIBLAB",
+        "LEAP Lab",
         "清华大学空间智能与视觉研究组",
         "Shanghai Coco Matrix Intelligent Technology"
       ],
       "person": [
+        "黄高教授",
         "徐梦迪教授",
         "李勇教授",
         "段岳奇教授"
