@@ -5,7 +5,7 @@
   },
   "email": "jmy23@mails.tsinghua.edu.cn",
   "scholar": "https://scholar.google.com/citations?user=em5g4N8AAAAJ",
-  "updated": "2026-10-16",
+  "updated": "2026-10-22",
   "profile": {
     "en": [
       "Undergraduate · Automation",
@@ -215,19 +215,6 @@
       "image_height": 452,
       "selected": true,
       "selected_order": 1
-    },
-    {
-      "key": "WorldREPA",
-      "year": "2026",
-      "published": false,
-      "title": "WorldREPA: Extending Representation Alignment for Multi-source World Knowledge Learning",
-      "authors": "Jiaao Tang*, Mingyuan Jia†*, Zhaolu Wang*, Xinhao Jin, Xin Zhang, Jianjie Fang, Baining Zhao, Yu Shang, Chen Gao, Wei Wu, Yong Li",
-      "links": [],
-      "image": "assets/papers/worldrepa.webp",
-      "image_width": 1000,
-      "image_height": 486,
-      "selected": false,
-      "selected_order": 100
     },
     {
       "key": "WorldScape",

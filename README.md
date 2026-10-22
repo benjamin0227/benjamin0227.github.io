@@ -65,7 +65,7 @@ python3 -m http.server 8000
 
 链接分层参考 https://wkwan7.github.io/ ，样式独立实现。AirScape 代码入口依据其官方项目页核实：https://github.com/EmbodiedCity/AirScape.code 。
 
-论文展示图位于 `assets/papers/`，从用户提供 PDF 中提取：AirScape 第 2 页、WorldScape 第 2 页、WorldREPA 第 3 页、MoE 第 2 页、ReplicateAnyScene 第 1 页。`content.json` 的 `image` 字段指定图片。论文列表不再展示个人贡献和作者身份说明；点击缩略图在新标签页查看大图。
+论文展示图位于 `assets/papers/`，从用户提供 PDF 中提取：AirScape 第 2 页、WorldScape 第 2 页、MoE 第 2 页、ReplicateAnyScene 第 1 页。`content.json` 的 `image` 字段指定图片。论文列表不再展示个人贡献和作者身份说明；点击缩略图在新标签页查看大图。
 
 ## 经历机构标识
 
