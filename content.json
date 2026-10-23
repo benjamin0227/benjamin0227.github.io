@@ -20,13 +20,13 @@
   },
   "about": {
     "en": [
-      "I am Mingyuan Jia (贾明远), an undergraduate in the Department of Automation at Tsinghua University. My research interests lie in adaptive robotic systems, world modeling, and representation learning.",
+      "I am Mingyuan Jia (贾明远), an undergraduate in the Department of Automation at Tsinghua University. My research interests lie in adaptive robotic systems, world modeling, and agentic orchestration.",
       "I will join the joint PhD program between Shanghai Jiao Tong University and Shanghai Qi Zhi Institute, advised by Prof. Mengdi Xu.",
       "My research aims to build adaptive robotic systems by combining agentic orchestration of robot foundation models, multimodal perception, and test-time adaptation algorithms. I prioritize the capabilities of the complete system, while treating strong models as essential building blocks. Starting from robots, my long-term goal is to develop general-purpose physical intelligence through continual learning after deployment and, ultimately, recursive self-improvement (RSI).",
       "I have worked with Prof. Yong Li at FIBLAB and Prof. Yueqi Duan at the Tsinghua Spatial Intelligence & Vision Group. I also feel fortunate to learn from Prof. Gao Huang at LEAP Lab. I am currently an R&D intern at Shanghai Coco Matrix Intelligent Technology, working on robotic model pre-training."
     ],
     "zh": [
-      "我是清华大学自动化系本科生。我的研究兴趣包括具备适应能力的机器人系统、世界建模与表征学习。",
+      "我是清华大学自动化系本科生。我的研究兴趣包括具备适应能力的机器人系统、世界建模与智能体编排。",
       "我即将入读上海交通大学与上海期智研究院联合培养博士项目，导师为徐梦迪教授。",
       "我的研究旨在构建具备适应能力的机器人系统，将围绕机器人基础模型的智能体编排、多模态感知与测试时适应算法相结合。我优先关注完整系统的能力，同时将强大的模型视为构建系统的关键组成部分。我的长期目标是从机器人出发，走向通用物理智能，通过部署后的持续学习，并最终通过递归自我改进（RSI），使系统不断提升自身能力。",
       "我曾在 FIBLAB 跟随李勇教授开展研究，也曾在清华大学空间智能与视觉研究组跟随段岳奇教授开展研究。我也很幸运能在 LEAP Lab 跟随黄高教授学习。目前在 Shanghai Coco Matrix Intelligent Technology 担任研发实习生，参与机器人模型预训练。"
@@ -280,8 +280,8 @@
         "zh": "世界建模"
       },
       "text": {
-        "en": "A general perspective on modeling world states and their transitions under actions, rather than a specific model family, to support prediction, planning, and interaction.",
-        "zh": "将世界建模视为对世界状态及其在动作作用下如何转移的一般性思路，而非某一类模型，以支持预测、规划与交互。"
+        "en": "Modeling world states and their transitions as a general principle for prediction, planning, and interaction.",
+        "zh": "将世界状态及其转移的建模作为一般性思路，支持预测、规划与交互。"
       }
     },
     {
@@ -290,8 +290,8 @@
         "zh": "机器人"
       },
       "text": {
-        "en": "Building robotic systems that adapt to changing tasks and environments through multimodal perception, test-time adaptation, and continual learning after deployment.",
-        "zh": "结合多模态感知、测试时适应和部署后的持续学习，构建能适应任务与环境变化的机器人系统。"
+        "en": "Enabling robots to adapt at deployment, learn continually, and improve from physical experience.",
+        "zh": "让机器人在部署时适应变化，持续学习，并从物理交互经验中不断改进。"
       }
     },
     {
@@ -300,18 +300,8 @@
         "zh": "智能体系统"
       },
       "text": {
-        "en": "Organizing perception, memory, planning, and action around foundation models, with feedback and test-time adaptation to improve the capabilities of the complete system.",
-        "zh": "围绕基础模型编排感知、记忆、规划与行动，通过反馈和测试时适应提升完整系统的能力。"
-      }
-    },
-    {
-      "title": {
-        "en": "Representation learning",
-        "zh": "表征学习"
-      },
-      "text": {
-        "en": "Learning complementary geometric and semantic knowledge from multiple sources.",
-        "zh": "从多源信息中学习互补的几何与语义知识。"
+        "en": "Orchestrating foundation models, tools, memory, and planning to turn individual capabilities into coherent systems.",
+        "zh": "编排基础模型、工具、记忆与规划，将单项能力组织为协调运作的系统。"
       }
     }
   ],
@@ -344,7 +334,7 @@
         "Prof. Yueqi Duan"
       ],
       "interest": [
-        "adaptive robotic systems, world modeling, and representation learning"
+        "adaptive robotic systems, world modeling, and agentic orchestration"
       ],
       "idea": [
         "adaptive robotic systems",
@@ -371,7 +361,7 @@
         "段岳奇教授"
       ],
       "interest": [
-        "具备适应能力的机器人系统、世界建模与表征学习"
+        "具备适应能力的机器人系统、世界建模与智能体编排"
       ],
       "idea": [
         "具备适应能力的机器人系统",
