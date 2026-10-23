@@ -243,6 +243,14 @@
         [
           "Project",
           "https://worldscape-moe.com/"
+        ],
+        [
+          "Paper",
+          "https://arxiv.org/abs/2607.03964"
+        ],
+        [
+          "Code",
+          "https://github.com/EmbodiedCity/Worldscape-MoE.code"
         ]
       ],
       "image": "assets/papers/worldscape-moe.webp",
