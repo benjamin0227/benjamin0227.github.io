@@ -73,6 +73,15 @@ for lang in ('en', 'zh'):
   return ''.join(result)
  def paper(p):
   authors = esc(p['authors']).replace('Mingyuan Jia', '<strong>Mingyuan Jia</strong>')
+  def author_markers(match):
+   marks = match.group()
+   meanings = []
+   if '†' in marks:
+    meanings.append('Project lead' if lang == 'en' else '项目负责人')
+   if '*' in marks:
+    meanings.append('Equal contribution' if lang == 'en' else '同等贡献')
+   return f'<sup class="author-marks" title="{esc("; ".join(meanings), quote=True)}">{marks}</sup>'
+  authors = re.sub(r'[†*]+', author_markers, authors)
   resources = dict(p['links'])
   ordered = [(key, resources[key]) for key in ('Project', 'Paper', 'Code') if resources.get(key)]
   ordered += [(key, url) for key, url in p['links'] if key not in ('Project', 'Paper', 'Code') and url]
