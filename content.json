@@ -5,7 +5,7 @@
   },
   "email": "jmy23@mails.tsinghua.edu.cn",
   "scholar": "https://scholar.google.com/citations?user=em5g4N8AAAAJ",
-  "updated": "2026-10-23",
+  "updated": "2026-10-24",
   "profile": {
     "en": [
       "Undergraduate · Automation",
@@ -187,11 +187,69 @@
   ],
   "publications": [
     {
+      "key": "BridgeWAM",
+      "year": "2026",
+      "date": "2026-10-10",
+      "published": false,
+      "venue": {"en": "arXiv preprint · 2026", "zh": "arXiv 预印本 · 2026"},
+      "title": "BridgeWAM: Bridging Video and Action Experts via Latent Bridge Queries",
+      "authors": "Jiaxin Fang, Ruitong Liu, Zeyu Lai, Xingyu Wang, Mingyuan Jia, Pingyue Sheng, Weikang Wan, Mengdi Xu, Yuxiang Gao",
+      "links": [
+        ["Project", "https://bridgewam.github.io/Bridge-Wam-show/"],
+        ["Paper", "https://arxiv.org/abs/2610.14746"],
+        ["Code", "https://github.com/jxfang04/BridgeWAM-code"]
+      ],
+      "image": "assets/papers/bridgewam.webp",
+      "image_width": 1000,
+      "image_height": 555,
+      "selected": false,
+      "selected_order": 100
+    },
+    {
+      "key": "ViGAR",
+      "year": "2026",
+      "date": "2026-10-01",
+      "published": false,
+      "venue": {"en": "arXiv preprint · 2026", "zh": "arXiv 预印本 · 2026"},
+      "title": "Rethinking World-Action Model for Compositional and In-Context Robotic Manipulation",
+      "authors": "Shukai Gong*, Xuanran Zhai*, Yintianrun Zhang*, Ruopeng Cui, Ye Huang, Yiyang Fu, Dexuan Lyu, Chaojie Li, Xinyi Song, Peiwen Lin, Chuang Wang, Mingyuan Jia, Yufan Deng, Jiaxin Fang, Bo Liang, Jiaxin Li, Yuxiang Gao, Hao Liu, Daquan Zhou",
+      "links": [
+        ["Project", "https://dagroup-pku.github.io/ViGAR/"],
+        ["Paper", "https://arxiv.org/abs/2610.02368"],
+        ["Code", "https://github.com/DAGroup-PKU/ViGAR"]
+      ],
+      "image": "assets/papers/vigar.webp",
+      "image_width": 1000,
+      "image_height": 485,
+      "selected": false,
+      "selected_order": 100
+    },
+    {
+      "key": "PSG-JEPA",
+      "year": "2026",
+      "date": "2026-08-07",
+      "published": false,
+      "venue": {"en": "arXiv preprint · 2026", "zh": "arXiv 预印本 · 2026"},
+      "title": "Is Forward Prediction Enough? Physical State Grounding for JEPA World Models",
+      "authors": "Haodong Yan, Jiaguan Zhu, Mingyuan Jia, Ruiqing Yin, Junjie He, Zhide Zhong, Junfeng Li, Jinxuan Lu, Hengtao Li, Tianran Zhang, Jiayi Chen, Wenxuan Song, Wen Chen, Yuxiang Gao, Haoang Li",
+      "links": [
+        ["Project", "https://haodong-yan.github.io/psg-jepa-project-page/"],
+        ["Paper", "https://arxiv.org/abs/2608.06799"],
+        ["Code", "https://github.com/Haodong-Yan/PSG-JEPA"]
+      ],
+      "image": "assets/papers/psg-jepa.webp",
+      "image_width": 599,
+      "image_height": 766,
+      "selected": false,
+      "selected_order": 100
+    },
+    {
       "key": "AirScape",
       "year": "2025",
+      "date": "2025-07-10",
       "published": true,
       "title": "AirScape: An Aerial Generative World Model with Motion Controllability",
-      "authors": "Baining Zhao*, Rongze Tang*, Mingyuan Jia*, Ziyou Wang*, Fanhang Man, Xin Zhang, Yu Shang, Weichen Zhang, Wei Wu, Chen Gao, Xinlei Chen, Yong Li",
+      "authors": "Baining Zhao*, Rongze Tang*, Mingyuan Jia*, Ziyou Wang*, Fanghang Man, Xin Zhang, Yu Shang, Weichen Zhang, Wei Wu, Chen Gao, Xinlei Chen, Yong Li",
       "venue": {
         "en": "ACM Multimedia 2025 · BNI Oral",
         "zh": "ACM Multimedia 2025 · BNI 口头报告"
@@ -217,28 +275,16 @@
       "selected_order": 1
     },
     {
-      "key": "WorldScape",
-      "year": "2026",
-      "published": false,
-      "title": "Efficient Real-Time Interactive World Modeling with Versatile Control",
-      "authors": "Yu Meng*, Chen Gao†, Baining Zhao*, Mingyuan Jia*, Rongze Tang, Ziyou Wang, Jianjie Fang, Wan Qin, Yingshan Lei, Jiaao Tang, Jiaao Li, Xin Zhang, Yu Shang, Wei Wu, Xinlei Chen, Xiao-Ping Zhang, Yong Li",
-      "links": [],
-      "image": "assets/papers/worldscape.webp",
-      "image_width": 1000,
-      "image_height": 338,
-      "selected": false,
-      "selected_order": 100
-    },
-    {
       "key": "Worldscape-MoE",
       "year": "2026",
+      "date": "2026-07-04",
       "published": true,
       "venue": {
         "en": "NeurIPS 2026",
         "zh": "NeurIPS 2026"
       },
       "title": "Worldscape-MoE: A Unified Mixture-of-Experts World Model for Scalable Heterogeneous Action Control",
-      "authors": "Jianjie Fang†*, Yongyan Xu*, Ziyou Wang*, Yuchao Huang, Zhaolu Wang, Rongze Tang, Mingyuan Jia, Baining Zhao, Weichen Zhang, Xin Zhang, Haisheng Su, Yu Shang, Chen Gao, Wei Wu, Xinlei Chen, Yong Li",
+      "authors": "Jianjie Fang†*, Yongyan Xu*, Ziyou Wang*, Chen Gao, Yuchao Huang, Zhaolu Wang, Rongze Tang, Mingyuan Jia, Baining Zhao, Weichen Zhang, Xin Zhang, Haisheng Su, Yu Shang, Wei Wu, Xinlei Chen, Yong Li",
       "links": [
         [
           "Project",
@@ -262,10 +308,16 @@
     {
       "key": "ReplicateAnyScene",
       "year": "2026",
+      "date": "2026-04-12",
       "published": false,
+      "venue": {"en": "arXiv preprint · 2026", "zh": "arXiv 预印本 · 2026"},
       "title": "ReplicateAnyScene: Zero-Shot Video-to-3D Composition via Textual-Visual-Spatial Alignment",
-      "authors": "Mingyu Dong*, Chong Xia*, Mingyuan Jia*, Weichen Lyu, Long Xu, Zheng Zhu, Yueqi Duan",
-      "links": [],
+      "authors": "Mingyu Dong*, Chong Xia*, Mingyuan Jia, Weichen Lyu, Long Xu, Zheng Zhu, Yueqi Duan",
+      "links": [
+        ["Project", "https://xiac20.github.io/ReplicateAnyScene/"],
+        ["Paper", "https://arxiv.org/abs/2604.10789"],
+        ["Code", "https://github.com/xiac20/ReplicateAnyScene"]
+      ],
       "image": "assets/papers/replicateanyscene.webp",
       "image_width": 938,
       "image_height": 535,

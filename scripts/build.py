@@ -83,7 +83,7 @@ for lang in ('en', 'zh'):
   if destination:
    title = f'<a class="paper-title-link" href="{esc(destination, quote=True)}" target="_blank" rel="noopener noreferrer" aria-label="{title} ({new_tab})">{title}</a>'
   thumbnail = f'<a class="paper-figure" href="{prefix}{esc(p["image"])}" target="_blank" rel="noopener" aria-label="{esc(p["key"])} · {"View figure" if lang == "en" else "查看论文配图"}"><img src="{prefix}{esc(p["image"])}" alt="{esc(p["key"])} {"overview figure" if lang == "en" else "概览图"}" width="{p['image_width']}" height="{p['image_height']}" loading="lazy"></a>'
-  venue = local(p['venue']) if p['published'] else f'{p["year"]} · {t["manuscript"]}'
+  venue = local(p['venue']) if p.get('venue') else f'{p["year"]} · {t["manuscript"]}'
   return f'<article class="paper" data-selected="{str(p.get("selected", False)).lower()}" data-selected-order="{p.get("selected_order", 100)}">{thumbnail}<div class="paper-details"><div class="paper-top"><span class="paper-key">{esc(p["key"])}</span><span class="venue">{venue}</span></div><h3>{title}</h3><p class="authors">{authors}</p>{'<div class="paper-links">' + links + '</div>' if links else ''}</div></article>'
  def hobbies():
   tabs, panels = [], []
