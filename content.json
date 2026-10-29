@@ -5,7 +5,7 @@
   },
   "email": "jmy23@mails.tsinghua.edu.cn",
   "scholar": "https://scholar.google.com/citations?user=em5g4N8AAAAJ",
-  "updated": "2026-10-24",
+  "updated": "2026-10-29",
   "profile": {
     "en": [
       "Undergraduate · Automation",
@@ -20,15 +20,15 @@
   },
   "about": {
     "en": [
-      "I am Mingyuan Jia (贾明远), an undergraduate in the Department of Automation at Tsinghua University. My research interests lie in adaptive robotic systems with strong world modeling.",
+      "I am Mingyuan Jia (贾明远), an undergraduate in the Department of Automation at Tsinghua University. My research focuses on training design for adaptation in embodied systems.",
       "I will join the joint PhD program between Shanghai Jiao Tong University and Shanghai Qi Zhi Institute, advised by Prof. Mengdi Xu.",
-      "My research aims to build adaptive robotic systems by combining agentic orchestration of robot foundation models, multimodal perception, and test-time adaptation algorithms. I prioritize the capabilities of the complete system, while treating strong models as essential building blocks. Starting from robots, my long-term goal is to develop general-purpose physical intelligence through continual learning after deployment and, ultimately, recursive self-improvement (RSI).",
+      "My proposed PhD research asks how training design can strengthen adaptation in embodied systems. At the model level, I explore world modeling through multitask perception and prediction, and how data and supervision can encourage models to actively use context. At the system level, I study how task and interaction design can put agentic systems under the right environmental pressures to learn to adapt quickly. My long-term goal is continual learning after deployment and recursive self-improvement (RSI).",
       "I have worked with Prof. Yong Li at FIBLAB and Prof. Yueqi Duan at the Tsinghua Spatial Intelligence & Vision Group. I also feel fortunate to learn from Prof. Gao Huang at LEAP Lab. I am currently an R&D intern at Shanghai Coco Matrix Intelligent Technology, working on robotic model pre-training."
     ],
     "zh": [
-      "我是清华大学自动化系本科生。我的研究兴趣是具备强大世界建模能力的自适应机器人系统。",
+      "我是清华大学自动化系本科生。我的研究关注如何通过训练设计增强具身系统的适应能力。",
       "我即将入读上海交通大学与上海期智研究院联合培养博士项目，导师为徐梦迪教授。",
-      "我的研究旨在构建具备适应能力的机器人系统，将围绕机器人基础模型的智能体编排、多模态感知与测试时适应算法相结合。我优先关注完整系统的能力，同时将强大的模型视为构建系统的关键组成部分。我的长期目标是从机器人出发，走向通用物理智能，通过部署后的持续学习，并最终通过递归自我改进（RSI），使系统不断提升自身能力。",
+      "我的博士研究计划围绕一个问题展开：如何从训练设计的角度增强具身系统的适应能力。在模型层面，我关注多任务感知与预测下的世界建模，以及如何通过数据和监督设计促使模型主动利用上下文。在系统层面，我关注如何设计任务与交互，让智能体系统在合适的环境压力下学会快速适应。我的长期愿景是部署后的持续学习与递归自我改进（RSI）。",
       "我曾在 FIBLAB 跟随李勇教授开展研究，也曾在清华大学空间智能与视觉研究组跟随段岳奇教授开展研究。我也很幸运能在 LEAP Lab 跟随黄高教授学习。目前在 Shanghai Coco Matrix Intelligent Technology 担任研发实习生，参与机器人模型预训练。"
     ]
   },
@@ -386,11 +386,12 @@
         "Prof. Yueqi Duan"
       ],
       "interest": [
-        "adaptive robotic systems with strong world modeling"
+        "training design for adaptation in embodied systems"
       ],
       "idea": [
-        "adaptive robotic systems",
-        "agentic orchestration",
+        "training design",
+        "actively use context",
+        "agentic systems",
         "continual learning after deployment",
         "recursive self-improvement (RSI)"
       ]
@@ -413,11 +414,12 @@
         "段岳奇教授"
       ],
       "interest": [
-        "具备强大世界建模能力的自适应机器人系统"
+        "通过训练设计增强具身系统的适应能力"
       ],
       "idea": [
-        "具备适应能力的机器人系统",
-        "智能体编排",
+        "训练设计",
+        "主动利用上下文",
+        "智能体系统",
         "部署后的持续学习",
         "递归自我改进（RSI）"
       ]
