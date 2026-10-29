@@ -22,13 +22,13 @@
     "en": [
       "I am Mingyuan Jia (贾明远), an undergraduate in the Department of Automation at Tsinghua University. My research focuses on training design for adaptation in embodied systems.",
       "I will join the joint PhD program between Shanghai Jiao Tong University and Shanghai Qi Zhi Institute, advised by Prof. Mengdi Xu.",
-      "My proposed PhD research asks how training design can strengthen adaptation in embodied systems. At the model level, I explore world modeling through multitask perception and prediction, and how data and supervision can encourage models to actively use context. At the system level, I study how task and interaction design can put agentic systems under the right environmental pressures to learn to adapt quickly. My long-term goal is continual learning after deployment and recursive self-improvement (RSI).",
+      "My research focuses on how training design can strengthen adaptation in embodied systems. At the model level, I explore world modeling through multitask perception and prediction, and how data and supervision can encourage models to actively use context. At the system level, I study how task and interaction design can put agentic systems under the right environmental pressures to learn to adapt quickly. My long-term goal is continual learning after deployment and recursive self-improvement (RSI).",
       "I have worked with Prof. Yong Li at FIBLAB and Prof. Yueqi Duan at the Tsinghua Spatial Intelligence & Vision Group. I also feel fortunate to learn from Prof. Gao Huang at LEAP Lab. I am currently an R&D intern at Shanghai Coco Matrix Intelligent Technology, working on robotic model pre-training."
     ],
     "zh": [
       "我是清华大学自动化系本科生。我的研究关注如何通过训练设计增强具身系统的适应能力。",
       "我即将入读上海交通大学与上海期智研究院联合培养博士项目，导师为徐梦迪教授。",
-      "我的博士研究计划围绕一个问题展开：如何从训练设计的角度增强具身系统的适应能力。在模型层面，我关注多任务感知与预测下的世界建模，以及如何通过数据和监督设计促使模型主动利用上下文。在系统层面，我关注如何设计任务与交互，让智能体系统在合适的环境压力下学会快速适应。我的长期愿景是部署后的持续学习与递归自我改进（RSI）。",
+      "我的研究关注如何从训练设计的角度增强具身系统的适应能力。在模型层面，我关注多任务感知与预测下的世界建模，以及如何通过数据和监督设计促使模型主动利用上下文。在系统层面，我关注如何设计任务与交互，让智能体系统在合适的环境压力下学会快速适应。我的长期愿景是部署后的持续学习与递归自我改进（RSI）。",
       "我曾在 FIBLAB 跟随李勇教授开展研究，也曾在清华大学空间智能与视觉研究组跟随段岳奇教授开展研究。我也很幸运能在 LEAP Lab 跟随黄高教授学习。目前在 Shanghai Coco Matrix Intelligent Technology 担任研发实习生，参与机器人模型预训练。"
     ]
   },
