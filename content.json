@@ -174,8 +174,8 @@
         "zh": "Manifold AI"
       },
       "subtitle": {
-        "en": "R&D Intern · Mentors: Chen Gao, Wei Wu",
-        "zh": "研发实习生 · 导师：Chen Gao、Wei Wu"
+        "en": "R&D Intern · Mentor: Wei Wu",
+        "zh": "研发实习生 · 导师：Wei Wu"
       },
       "text": {
         "en": "Key contributor to WorldScape, focusing on 3D spatial consistency training and memory-oriented KV cache optimization.",
